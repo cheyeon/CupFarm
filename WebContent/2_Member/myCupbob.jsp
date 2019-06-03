@@ -5,22 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <style type="text/css">
-	body{
+	html, body { 
 		margin:0px;
+		height:100%;
+		overflow:hidden 
+	}
+
+	#container {
+	    padding: 1%;
+	    background-color: #f3e7d4;
+	    height: 100%;
 	}
 	
-	#container{
-		padding: 1%;
-		background-color: #f3e7d4;
-	}
 </style>
 </head>
 <body>
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
 	
 	<div id="container">
-	<!-- container에 원하는 내용을 적으면됩니다 -->
-
 
 	</div>
 </body>

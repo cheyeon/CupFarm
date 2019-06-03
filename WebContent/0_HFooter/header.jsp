@@ -108,7 +108,7 @@
 		</div>
 		
 		<div id = "mid">
-			<a href=""> <img alt="cupfarmlogo" src="./img/컵팜로고.png" id="cf_logo"> </a>
+			<a href=""> <img alt="cupfarmlogo" src="../img/컵팜로고.png" id="cf_logo"> </a>
 		</div>
 		
 		<div id = "bottom">
