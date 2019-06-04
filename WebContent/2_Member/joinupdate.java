@@ -46,8 +46,8 @@ public class Joinupdate extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         driver = "oracle.jdbc.driver.OracleDriver";
         url = "jdbc:oracle:thin:@localhost:1521:xe";
-       // uId ="";  서버계정(?)의 아이디와
-      //  uPw ="";	비번
+      //  uId ="System";  서버계정(?)의 아이디와
+       // uPw ="Java0311";	비번
         
         name = request.getParameter("name");
         id = request.getParameter("id");
