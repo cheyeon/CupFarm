@@ -35,8 +35,9 @@
 		font-size: 15px;
 	}
 	
-	#left_menu div:first-child{
+	#left_menu div:first-child{    
 		font-size: 18px;
+    	font-weight: bold;
 		margin-bottom: 10px;
 	}
 

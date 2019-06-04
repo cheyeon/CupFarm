@@ -71,13 +71,23 @@
 		
 		#bottom ul li{
 			float : left;
-			margin: 0px 25px;
+			margin: 0px 30px;
+		}
+		
+		#bottom ul li:hover{
+			font-weight: bold;
+			color: #939393;
+		}
+		
+		#bottom ul li:active{
+			font-size: 15px;
+			line-height: 56px;
 		}
 		
 		.fixed{
 			position: fixed;
 			top: 0px;
-			background-color: #ffffffed;
+			background-color: #ffffffd6;
 		}
 		
 	</style>
@@ -88,7 +98,6 @@
     	  //메뉴위치 파악
         var botOffset = $(  '#bottom' ).offset();
     	  
-    	  //스크롤이 움직이면 메소드 실행
         $( window ).scroll( function() {
         	//스크롤바가 메뉴보다 아래면 고정하라
           if ( $( document ).scrollTop() > botOffset.top ) {
