@@ -8,7 +8,6 @@ public class CFBoardService {
 	private CFBoardService() {
 		dao = new CFBoardDAO();
 	}
-	
 	public static CFBoardService getInstance() {
 		return instance;
 	}

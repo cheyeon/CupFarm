@@ -2,6 +2,7 @@ package cf.member.model;
 
 import java.sql.Date;
 
+
 public class MemDTO {
 
 	private int no;

@@ -48,7 +48,6 @@ public class CFBoardDTO {
 	public String getB_title() {
 		return b_title;
 	}
-
 	public void setB_title(String b_title) {
 		this.b_title = b_title;
 	}

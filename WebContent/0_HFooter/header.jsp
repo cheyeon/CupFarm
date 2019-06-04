@@ -125,7 +125,7 @@
 				<li> <a href=""> 컵팜  </a> </li>
 				<li> <a href=""> 내 컵밥관리  </a> </li>
 				<li> <a href=""> 컵밥 그룹  </a> </li>
-				<li> <a href=""> 컵밥 교환  </a> </li>
+				<li> <a href="../board.do?m=ok&"> 컵밥 교환  </a> </li>
 				<li> <a href=""> 컵밥 판매  </a> </li>
 			</ul>
 		</div>

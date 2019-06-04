@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 import cf.member.model.MemDTO;
 
+
 public class LoginService {
 	private LoginDAO dao;
 	private static LoginService instance = new LoginService();
