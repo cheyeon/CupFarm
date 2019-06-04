@@ -9,6 +9,7 @@
 	
 	html, body { 
 		margin:0px;
+		height:100%;
 	}
 	
 	#container {
@@ -50,8 +51,8 @@
 	    <div class="wrap">
 	        <div id="slider">
 	            <div>
-				<img alt="main1" src="../img/컵반메인이미지1.jpg">
-				<img alt="main2" src="../img/컵반메인이미지2.jpg">
+				<img alt="main1" src="../img/컵반메인이미지3.jpg">
+				<img alt="main2" src="../img/컵반메인이미지1.jpg">
 				<img alt="main2" src="../img/컵반메인이미지2.jpg">
 	            </div>
 	        </div>

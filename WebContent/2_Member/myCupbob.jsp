@@ -3,63 +3,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/basic.css">
 <style type="text/css">
-	@import url('https://fonts.googleapis.com/css?family=Gothic+A1&display=swap');
-	@charset "UTF-8";
-	
-	html, body { 
-		margin:0px;
-		height:100%;
-	}
-
-	#container {
-	    padding: 1%;
-	    padding-top: 45px;
-	    background-color: #f3e7d4;
-	    height: 100%;
-	}
-	
-	#left_menu{
-		width: 19%;
-		vertical-align: top;
-		display: inline-block;
-		text-align: right;
-		background-color: transparent;
-	}
-
-	#left_menu div{
-		margin-right: 14%;
-		background-color: transparent;
-		font-family: 'Gothic A1', sans-serif;
-		margin-bottom: 6px;
-		font-size: 15px;
-	}
-	
-	#left_menu div:first-child{    
-		font-size: 18px;
-    	font-weight: bold;
-		margin-bottom: 10px;
-	}
-
-	#contents{
-		vertical-align: top;
-		width: 55%;
-		background-color: white;
-		display: inline-block;
-		font-family: 'Gothic A1', sans-serif;
-		min-height: 80%;
-		padding: 3%;
-		box-shadow: 3px 4px 5px -5px;
-	}
-	
-	#cont_top{
-		border-bottom: 1px solid #fcc246;
-	}
-	
-	#cont_top div{
-		margin-bottom: 8px;
-	}
-	
 	@-webkit-keyframes bounceIn {
 	  from,
 	  20%,
