@@ -2,5 +2,5 @@ package cf.member.model;
 
 
 class LoginSQL {
-	static final String SQL1 = "select * from MEMBER where ID=?";
+	static final String SQL1 = "select * from MEMBER where M_ID=?";
 }

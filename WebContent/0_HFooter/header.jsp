@@ -113,7 +113,7 @@
 	<div id ="header">
 		<div id = "top">
 			<span> <a href="../login.do"> 로그인 </a></span>
-			<span> <a href="../2_Member/join.jsp"> 회원가입 </a> </span>
+			<span> <a href="./2_Member/join.jsp"> 회원가입 </a> </span>
 		</div>
 		
 		<div id = "mid">

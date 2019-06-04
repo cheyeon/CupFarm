@@ -7,10 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+<<<<<<< HEAD
 import javax.servlet.RequestDispatcher;
 import cf.member.model.LoginService;
 import cf.member.model.MemDTO;
 
+=======
+>>>>>>> cheyeon_html
 
 @WebServlet("/login.do")
 public class LoginControl extends HttpServlet {
@@ -34,7 +37,7 @@ public class LoginControl extends HttpServlet {
 	}
 	private void form(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		response.sendRedirect("2_Member/login.jsp");
+		response.sendRedirect("./2_Member/login.jsp");
 	}
 	private void check(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -50,10 +53,13 @@ public class LoginControl extends HttpServlet {
 		int result = (int)obj[1];
 		if(result == 2) {
 			session.setAttribute("loginok", dto);
-		}
+		}else{
+                System.out.println("로그인 실패");
+                response.sendRedirect("loginFail.html");
+            }
 		
 		request.setAttribute("result", result);
-		RequestDispatcher rd = request.getRequestDispatcher("login/msg.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("loginok.jsp");
 		rd.forward(request, response);
 	}
 	private void out(HttpServletRequest request, HttpServletResponse response) 
@@ -61,7 +67,7 @@ public class LoginControl extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		//session.removeAttribute("loginOkUser");
-		
-		response.sendRedirect("index.do");
+		//response.sendRedirect("index.do");
+		response.sendRedirect("../0_HFooter/header.jsp");
 	}
 }
