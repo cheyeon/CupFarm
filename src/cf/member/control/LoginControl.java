@@ -19,9 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import cf.member.model.LoginService;
-import cf.member.model.MemDTO;
-
 @WebServlet("/login.do")
 public class LoginControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -44,7 +41,7 @@ public class LoginControl extends HttpServlet {
 	}
 	private void form(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		response.sendRedirect("2_Member/login.jsp");
+		response.sendRedirect("./2_Member/login.jsp");
 	}
 	private void check(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
