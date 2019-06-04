@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  import="java.util.*,jung.m2.model.BoardDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  import="java.util.*,cf.member.model.MemDTO"%>
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
