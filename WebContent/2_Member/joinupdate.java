@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
 
-@WebServlet("/joinup")
+@WebServlet("/join.do")
 public class Joinupdate extends HttpServlet {
     private static final long serialVersionUID = 1L;
        
@@ -23,10 +23,10 @@ public class Joinupdate extends HttpServlet {
     private String query;
     private String driver,url,uId,uPw,name,id,pwd,phone,joindate;
     
-//    String driver = "oracle.jdbc.driver.OracleDriver";
-//    String url = "jdbc:oracle:thin:@localhost:1521:xe";
-//    String uId ="";		서버계정의 ID와 
-//    String uPw ="";		비번
+    driver = "oracle.jdbc.driver.OracleDriver";
+    url = "jdbc:oracle:thin:@203.236.209.195:1521/JAVA";
+    String uId ="cupbob";
+    String uPw ="JAVA";
  
     public joinupdate() {
         super();
@@ -45,9 +45,9 @@ public class Joinupdate extends HttpServlet {
         
         request.setCharacterEncoding("UTF-8");
         driver = "oracle.jdbc.driver.OracleDriver";
-        url = "jdbc:oracle:thin:@localhost:1521:xe";
-      //  uId ="System";  서버계정(?)의 아이디와
-       // uPw ="Java0311";	비번
+        url = "jdbc:oracle:thin:@203.236.209.195:1521/JAVA";
+        String uId ="cupbob";
+        String uPw ="JAVA";
         
         name = request.getParameter("name");
         id = request.getParameter("id");
@@ -68,19 +68,19 @@ public class Joinupdate extends HttpServlet {
             stmt = conn.createStatement();
             int i = stmt.executeUpdate(query);
             if(i==1){
-                System.out.println("insert success");
+                System.out.println("가입 성공");
                 response.sendRedirect("joinok.html");
             }
             else{
-                System.out.println("insert fail");
-                response.sendRedirect("joinFail.html");
+                System.out.println("가입 실패");
+                response.sendRedirect("joinfail.html");
             }
             
         }
         catch(Exception e){
             e.printStackTrace();
-            System.out.println("insert fail");
-            response.sendRedirect("JoinFail.html");
+            System.out.println("가입 실패");
+            response.sendRedirect("Joinfail.html");
             
         }
         finally{

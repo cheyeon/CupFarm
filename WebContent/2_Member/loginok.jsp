@@ -9,5 +9,5 @@
 	if(id != null && id.equals(pwd)){
 	session.setAttribute("id", id);
 	}
-	response.sendRedirect("list.jsp");
+	response.sendRedirect("../0_HFooter/header.jsp");
 	%>'
