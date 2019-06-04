@@ -10,7 +10,8 @@ DROP sequence GROUPLIST_SEQ;
 DROP sequence GRMEM_SEQ;
 DROP sequence CUPBOB_SEQ;
 DROP sequence LOG_SEQ;
+DROP sequence LOG_IDX;
 DROP sequence BOARD_SEQ;
 DROP sequence REPLY_SEQ;
-
+Purge recyclebin;
 
