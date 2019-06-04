@@ -32,7 +32,7 @@
   </head>
   <body onload="f.id.focus();">
   <jsp:include page="../0_HFooter/header.jsp"></jsp:include>
-     <form name="f" action="loginok.jsp" method="post">
+     <form name="f" action="loginproc.jsp" method="post">
 	    <table align="center" cellpadding="3" cellspacing="1" 
 		                          border="1" bordercolor="Maroon">
            <tr>

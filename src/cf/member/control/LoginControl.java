@@ -57,10 +57,13 @@ public class LoginControl extends HttpServlet {
 		int result = (int)obj[1];
 		if(result == 2) {
 			session.setAttribute("loginok", dto);
-		}
+		}else{
+                System.out.println("로그인 실패");
+                response.sendRedirect("loginFail.html");
+            }
 		
 		request.setAttribute("result", result);
-		RequestDispatcher rd = request.getRequestDispatcher("login/msg.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("loginok.jsp");
 		rd.forward(request, response);
 	}
 	private void out(HttpServletRequest request, HttpServletResponse response) 
@@ -68,7 +71,7 @@ public class LoginControl extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		//session.removeAttribute("loginOkUser");
-		
-		response.sendRedirect("index.do");
+		//response.sendRedirect("index.do");
+		response.sendRedirect("../0_HFooter/header.jsp");
 	}
 }
