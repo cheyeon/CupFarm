@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" import="java.util.*,cf.board.model.CFBoardDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -161,48 +161,14 @@
 						<th>작성자</th>
 						<th>작성일</th>
 					</tr>
-					
+
 					<tr>
-						<td>1</td>
+						<td>d</td>
 						<td>웅앵웅ㅇ앵웅앵웅</td>
 						<td>시발</td>
 						<td>시발</td>
 					</tr>
 
-					<tr>
-						<td>2</td>
-						<td>시발</td>
-						<td>시발</td>
-						<td>시발</td>
-					</tr>
-
-					<tr>
-						<td>3</td>
-						<td>시발</td>
-						<td>시발</td>
-						<td>시발</td>
-					</tr>
-
-					<tr>
-						<td>4</td>
-						<td>시발</td>
-						<td>시발</td>
-						<td>시발</td>
-					</tr>
-
-					<tr>
-						<td>5</td>
-						<td>시발</td>
-						<td>시발</td>
-						<td>시발</td>
-					</tr>
-
-					<tr>
-						<td>6</td>
-						<td>시발</td>
-						<td>시발</td>
-						<td>시발</td>
-					</tr>
 				</table>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 package cf.board.sql;
 
-public class CFBoardSQL {
-	//static final String sqlS
+
+class CFBoardSQL {
+	static final String tradelist = "select * from board order by b_idx desc";
 
 }
