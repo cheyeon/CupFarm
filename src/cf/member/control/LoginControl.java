@@ -1,19 +1,15 @@
 package cf.member.control;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-<<<<<<< HEAD
-import javax.servlet.RequestDispatcher;
-import cf.member.model.LoginService;
-import cf.member.model.MemDTO;
 
-=======
->>>>>>> cheyeon_html
 
 @WebServlet("/login.do")
 public class LoginControl extends HttpServlet {
