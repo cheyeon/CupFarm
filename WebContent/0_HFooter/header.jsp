@@ -91,7 +91,7 @@
 		
 	</style>
 	
-    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
       $( document ).ready( function() {
     	  //메뉴위치 파악

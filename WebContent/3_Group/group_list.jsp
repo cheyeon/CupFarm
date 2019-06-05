@@ -10,11 +10,7 @@
 		text-align:center;
 	}
 
-	.group_list{
-		width: 90%;
-		display: inline-block;
-		height: 250px;
-	}
+
 
 </style>
 
@@ -30,11 +26,16 @@
 		</div>
 		<div id ="contents">
 			<div id = "cont_top">
-				<div>	나의 컵밥 그룹	</div>
+				<div>	컵밥그룹 생성/가입	</div>
 			</div>
 	
 			<div class ="cont">
-				<div class="group_list"> 그룹명 </div>
+				<div class="gr_menu"> 
+					<span>그룹 생성</span>
+				</div>
+				<div class="gr_menu">
+					<span>그룹 가입</span>
+				</div>
 			</div>
 
 		</div>
