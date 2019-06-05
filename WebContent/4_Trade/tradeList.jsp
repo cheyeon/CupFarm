@@ -3,44 +3,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/basic.css">
 <style type="text/css">
-	@import url('https://fonts.googleapis.com/css?family=Gothic+A1&display=swap');
-	@charset "UTF-8";
-	
-	html, body { 
-		margin:0px;
-		height:100%;
-	}
-
-	#container {
-	    padding: 1%;
-	    height: 100%;
-        text-align: center;
-	}
-	
-	#left_menu div{
-		margin-right: 14%;
-		background-color: transparent;
-		font-family: 'Gothic A1', sans-serif;
-		margin-bottom: 6px;
-		font-size: 15px;
-	}
-	
-	#left_menu div:first-child{    
-		font-size: 18px;
-    	font-weight: bold;
-		margin-bottom: 10px;
-	}
-
-	#contents{
-		vertical-align: top;
-		width: 80%;
-		background-color: white;
-		display: inline-block;
-		font-family: 'Gothic A1', sans-serif;
-		min-height: 80%;
-	}
-		
 	.tables table{
 		border-collapse: collapse;
 		width: 90%;
@@ -145,8 +109,8 @@
 		</div>
 	</div>
 	
-	<div id="container">
-		<div id ="contents">
+	<div id="container_board">
+		<div id ="contents_board">
 			<div class="tables">
 
 				<table>

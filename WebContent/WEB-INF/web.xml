@@ -25,7 +25,11 @@
   
   
   <welcome-file-list>
+<<<<<<< HEAD
     <welcome-file>./index.jsp</welcome-file>
 
+=======
+    <welcome-file>index.do</welcome-file>
+>>>>>>> cheyeon_html
   </welcome-file-list>
 </web-app>

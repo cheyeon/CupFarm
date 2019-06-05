@@ -1,12 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*,cf.member.model.MemDTO"%>
-<meta charset="utf-8">
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-  <head>
-<title>Insert title here</title>
-    <title> 로그인하기 </title>
-	<style type="text/css">
-	   table{text-align: center} 
-	</style>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/basic.css">
 	<script language="javascript">
 	   function check()
 	   {
@@ -29,12 +26,13 @@
 	      f.id.focus();
 	   }
 	</script>
-  </head>
-  <body onload="f.id.focus();">
-  <jsp:include page="../0_HFooter/header.jsp"></jsp:include>
+</head>
+<body>
+	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
+	
+	<div id="container">
      <form name="f" action="loginproc.jsp" method="post">
-	    <table align="center" cellpadding="3" cellspacing="1" 
-		                          border="1" bordercolor="Maroon">
+	    <table align="center" cellpadding="3" cellspacing="1"  border="1" bordercolor="Maroon">
            <tr>
 		     <td colspan="2" align="center">
 			   <font size="4"><B>로그인</B></font>
@@ -58,5 +56,6 @@
 		   </tr>
 		</table>
 	 </form>
-  </body>
-</html> 
+	</div>
+</body>
+</html>

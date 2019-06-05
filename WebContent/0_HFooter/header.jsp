@@ -44,9 +44,8 @@
 		}
 		
 		#mid{
-		    height: 130px;
 		    text-align: center;
-		    line-height: 12;
+		    padding: 25px 0;
 		    border-bottom: .5px solid #d0d0d0;
 		}
 		
