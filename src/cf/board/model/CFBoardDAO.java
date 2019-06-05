@@ -34,7 +34,7 @@ class CFBoardDAO {
 		con = ds.getConnection();
 		stmt = con.createStatement();
 		rs = stmt.executeQuery("select * from BOARD order by b_idx desc");
-		rs.next();
+	
 		for(int i =0;i<cp*(ps-1);i++) {
 			rs.next();
 		}
