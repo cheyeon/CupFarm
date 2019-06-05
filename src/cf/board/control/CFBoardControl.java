@@ -50,15 +50,17 @@ public class CFBoardControl extends HttpServlet {
 	
 	private void tradelist(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
-		String ps = request.getParameter("ps");
-		String cp = request.getParameter("cp");
+		String Strps = request.getParameter("ps");       //ps = 쪽수
+		String Strcp = request.getParameter("cp");			// cp = 페이지당 컨텐츠수
+		int consu = 0;								//consu= 총게시물수
 		CFBoardService service = CFBoardService.getInstance();
-		ArrayList<CFBoardDTO> tlist = service.tradelistS(cp,ps);
-		for(CFBoardDTO dto: tlist) {
-			System.out.println(dto.getB_content()+"ddddddddddddddddddddd");
-			
-		}
+		consu = service.consuS();
+		ArrayList<CFBoardDTO> tlist = service.tradelistS(Strcp,Strps);
 		
+		int cp = Integer.parseInt(Strcp);
+		
+		int pagesu = (int) Math.ceil(consu/cp);
+		request.setAttribute("pagesu", pagesu);
 		request.setAttribute("list", tlist);
 		RequestDispatcher rd = request.getRequestDispatcher("4_Trade/tradeList.jsp");
 		rd.forward(request, response);

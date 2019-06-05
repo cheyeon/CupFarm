@@ -34,12 +34,13 @@ class CFBoardDAO {
 		con = ds.getConnection();
 		stmt = con.createStatement();
 		rs = stmt.executeQuery("select * from BOARD order by b_idx desc");
+		rs.next();
 		for(int i =0;i<cp*(ps-1);i++) {
 			rs.next();
 		}
 	
-		
-		for(int i=0;i<cp;i++){
+		int i=0;
+		for(;i<cp;){
 			rs.next();
 			int b_idx = rs.getInt(1);
 			String b_head = rs.getString(2);
@@ -56,6 +57,7 @@ class CFBoardDAO {
 			if(b_head.equals("T")) {
 				System.out.println(b_idx+ b_head+ b_title+ m_id+ b_content+ c_idx+ b_ox+ b_ox+ b_wdate);
 			tlist.add(dto);
+			i++;
 			}else {
 				
 			}
@@ -74,5 +76,31 @@ class CFBoardDAO {
 	}
 }
 	
+	int consu() {
+		int consu=0;
+		Connection con = null;
+		Statement stmt= null;
+		ResultSet rs = null;
+		try {
+			con = ds.getConnection();
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select * from BOARD order by b_idx desc");
+			while(rs.next()) {
+				String b_head = rs.getString(2);
+				if(b_head.equals("T")) {
+					consu = consu+1;
+				}
+			}		
+		}catch(SQLException se) {
+			
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(stmt != null) stmt.close();
+				if(con != null) con.close();
+			}catch(SQLException se) {}
+		}	
+		return consu;
+	}
 
 }

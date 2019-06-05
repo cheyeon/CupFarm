@@ -18,9 +18,12 @@ public class CFBoardService {
 
 	public ArrayList<CFBoardDTO> tradelistS(String cp, String ps){
 		return cfdao.tradelist(cp,ps);
-		
-		
 	
+	}
+	public int consuS() {
+		return cfdao.consu();
+		
+		
 	}
 	
 }

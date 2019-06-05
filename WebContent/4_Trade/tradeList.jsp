@@ -3,8 +3,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/basic.css">
 <style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Gothic+A1&display=swap');
+	@charset "UTF-8";
+	
+	html, body { 
+		margin:0px;
+		height:100%;
+	}
+
+	#container {
+	    padding: 1%;
+	    height: 100%;
+        text-align: center;
+	}
+	
+	#left_menu div{
+		margin-right: 14%;
+		background-color: transparent;
+		font-family: 'Gothic A1', sans-serif;
+		margin-bottom: 6px;
+		font-size: 15px;
+	}
+	
+	#left_menu div:first-child{    
+		font-size: 18px;
+    	font-weight: bold;
+		margin-bottom: 10px;
+	}
+
+	#contents{
+		vertical-align: top;
+		width: 80%;
+		background-color: white;
+		display: inline-block;
+		font-family: 'Gothic A1', sans-serif;
+		min-height: 80%;
+	}
+		
 	.tables table{
 		border-collapse: collapse;
 		width: 90%;
@@ -109,8 +145,8 @@
 		</div>
 	</div>
 	
-	<div id="container_board">
-		<div id ="contents_board">
+	<div id="container">
+		<div id ="contents">
 			<div class="tables">
 
 				<table>
@@ -125,13 +161,54 @@
 						<th>작성자</th>
 						<th>작성일</th>
 					</tr>
-
+<%
+	ArrayList<CFBoardDTO> list = (ArrayList<CFBoardDTO>)request.getAttribute("list");
+	for(CFBoardDTO dto : list){
+%>
 					<tr>
-						<td>d</td>
-						<td>웅앵웅ㅇ앵웅앵웅</td>
-						<td>시발</td>
-						<td>시발</td>
+						<td><%=dto.getB_idx()%></td>
+						<td><%=dto.getB_title() %></td>
+						<td><%=dto.getM_id() %></td>
+						<td><%=dto.getB_wdate() %></td>
 					</tr>
+
+<%
+	}
+%>
+
+
+<%
+	
+	int pagesu = (int)request.getAttribute("pagesu");
+	int strs[] = new int[pagesu+1];
+			for(int i=1;i<strs.length;i++){
+				strs[i]=i;
+			}
+%>
+		  <td colspan="5">
+		    <hr width="600" color="Maroon" size="2" noshade>
+		  </td>
+		</tr>
+		<tr>
+		  <td colspan="3" align="center">
+
+           |
+<%
+	for(int i=0;i<strs.length;i++){
+%>
+             <a href="board.do?m=tradelist&cp=2&ps=<%=strs[i]%>">
+<b><%=strs[i] %></b>
+
+             </a> 
+
+		   |
+<%
+	}
+%>
+
+
+
+
 
 				</table>
 			</div>
