@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/basic.css">
+<link rel="stylesheet" type="text/css" href="./css/basic.css">
 <style type="text/css">
 
 	.cont{
@@ -25,8 +25,8 @@
 	<div id="container">
 		<div id ="left_menu">
 			<div> 컵밥 그룹 </div>
-			<div> - <a href=""> 나의 컵밥 그룹</a> </div>
-			<div> -  <a href="">컵밥그룹 생성/가입</a> </div>
+			<div> - <a href="./group.do"> 나의 컵밥 그룹</a> </div>
+			<div> -  <a href="./group.do?m=gr_menu">컵밥그룹 생성/가입</a> </div>
 		</div>
 		<div id ="contents">
 			<div id = "cont_top">

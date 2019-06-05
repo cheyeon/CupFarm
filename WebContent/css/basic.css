@@ -10,6 +10,7 @@ html, body {
     padding-top: 45px;
     background-color: #f3e7d4;
     height: 100%;
+	min-height: 700px;
 }
 
 #container_board{
@@ -46,7 +47,6 @@ html, body {
 	background-color: white;
 	display: inline-block;
 	font-family: 'Gothic A1', sans-serif;
-	min-height: 80%;
 	padding: 3%;
 	box-shadow: 3px 4px 5px -5px;
 }

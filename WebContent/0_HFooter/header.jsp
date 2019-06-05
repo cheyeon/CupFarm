@@ -111,19 +111,19 @@
 <body>
 	<div id ="header">
 		<div id = "top">
-			<span> <a href="../login.do"> 로그인 </a></span>
-			<span> <a href="./2_Member/join.jsp"> 회원가입 </a> </span>
+			<span> <a href="./login.do"> 로그인 </a></span>
+			<span> <a href=""> 회원가입 </a> </span>
 		</div>
 		
 		<div id = "mid">
-			<a href=""> <img alt="cupfarmlogo" src="../img/컵팜로고.png" id="cf_logo"> </a>
+			<a href="./index.do"> <img alt="cupfarmlogo" src="./img/컵팜로고.png" id="cf_logo"> </a>
 		</div>
 		
 		<div id = "bottom">
 			<ul>
 				<li> <a href=""> 컵팜  </a> </li>
-				<li> <a href=""> 내 컵밥관리  </a> </li>
-				<li> <a href=""> 컵밥 그룹  </a> </li>
+				<li> <a href="./my.do"> 내 컵밥관리  </a> </li>
+				<li> <a href="./group.do"> 컵밥 그룹  </a> </li>
 				<li> <a href=""> 컵밥 교환  </a> </li>
 				<li> <a href=""> 컵밥 판매  </a> </li>
 			</ul>

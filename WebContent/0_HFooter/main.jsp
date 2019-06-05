@@ -44,16 +44,16 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
+	<jsp:include page="./header.jsp"></jsp:include>
 	<div id="container">
 
 	<div id="main_slide">
 	    <div class="wrap">
 	        <div id="slider">
 	            <div>
-				<img alt="main1" src="../img/컵반메인이미지3.jpg">
-				<img alt="main2" src="../img/컵반메인이미지1.jpg">
-				<img alt="main2" src="../img/컵반메인이미지2.jpg">
+				<img alt="main1" src="./img/컵반메인이미지3.jpg">
+				<img alt="main2" src="./img/컵반메인이미지1.jpg">
+				<img alt="main2" src="./img/컵반메인이미지2.jpg">
 	            </div>
 	        </div>
 	    </div>

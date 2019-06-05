@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/basic.css">
+<link rel="stylesheet" type="text/css" href="./css/basic.css">
 <style type="text/css">
 	@-webkit-keyframes bounceIn {
 	  from,
