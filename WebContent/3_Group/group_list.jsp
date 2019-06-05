@@ -10,12 +10,6 @@
 		text-align:center;
 	}
 
-	.group_list{
-		width: 90%;
-		display: inline-block;
-		height: 250px;
-	}
-
 </style>
 
 </head>
@@ -30,11 +24,11 @@
 		</div>
 		<div id ="contents">
 			<div id = "cont_top">
-				<div>	나의 컵밥 그룹	</div>
+				<div>	컴팜 그룹 리스트	</div>
 			</div>
 	
 			<div class ="cont">
-				<div class="group_list"> 그룹명 </div>
+
 			</div>
 
 		</div>

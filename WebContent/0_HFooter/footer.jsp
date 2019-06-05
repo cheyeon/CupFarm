@@ -73,7 +73,7 @@
 	<div id ="footer">
 		<a href="">
 			<div id = "eat">
-				<img alt="cupfarmlogo" src="../img/컵팜로고3.png" id="eatimg">
+				<img alt="cupfarmlogo" src="./img/컵팜로고3.png" id="eatimg">
 			</div>
 		</a>
 	</div>

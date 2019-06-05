@@ -10,10 +10,28 @@
 		text-align:center;
 	}
 
-	.group_list{
-		width: 90%;
+	.gr_menu{
+	    width: 40%;
+	    margin: 2% 4%;
 		display: inline-block;
-		height: 250px;
+		height: 400px;
+		background: #fcc246;
+		font-size: 35px;
+		font-weight: bold;
+	    line-height: 400px;
+		box-shadow: 2px -1px 6px #d4cec5;
+		  -webkit-transition: all .3s; /* For Safari 3.1 to 6.0 */
+		  transition: all .3s;
+	}
+	
+	.gr_menu:hover{
+		width: 41%;
+		background: #fdd786;
+		font-size: 39px;
+	}
+	
+	.gr_menu:active{
+		background: #fcc246;
 	}
 
 </style>
@@ -30,11 +48,21 @@
 		</div>
 		<div id ="contents">
 			<div id = "cont_top">
-				<div>	나의 컵밥 그룹	</div>
+				<div>	컵밥그룹 생성/가입	</div>
 			</div>
 	
 			<div class ="cont">
-				<div class="group_list"> 그룹명 </div>
+				<a href="">
+					<div class="gr_menu"> 
+						<span>그룹 생성</span>
+					</div>
+				</a>
+
+				<a href="./group.do?m=gr_list">
+				<div class="gr_menu">
+					<span>그룹 가입</span>
+				</div>
+				</a>
 			</div>
 
 		</div>
