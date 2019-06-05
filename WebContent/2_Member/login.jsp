@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/basic.css">
+<link rel="stylesheet" type="text/css" href="./css/basic.css">
 	<script language="javascript">
 	   function check()
 	   {
@@ -31,7 +31,7 @@
 	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
 	
 	<div id="container">
-     <form name="f" action="loginproc.jsp" method="post">
+     <form name="f" action="login.do?m=check" method="post">
 	    <table align="center" cellpadding="3" cellspacing="1"  border="1" bordercolor="Maroon">
            <tr>
 		     <td colspan="2" align="center">

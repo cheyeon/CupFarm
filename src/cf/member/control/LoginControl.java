@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import cf.member.model.*;
 
 
 @WebServlet("/login.do")
@@ -25,7 +26,7 @@ public class LoginControl extends HttpServlet {
 			}else if(m.equals("check")) {
 			    check(request, response);
 			}else {
-				out(request, response);
+				form(request, response);
 			}
 		}else { 
 			form(request, response);
@@ -33,7 +34,8 @@ public class LoginControl extends HttpServlet {
 	}
 	private void form(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		response.sendRedirect("./2_Member/login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("./2_Member/login.jsp");
+		rd.forward(request, response);
 	}
 	private void check(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
