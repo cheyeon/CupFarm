@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=utf-8" import="java.util.*,cf.member.model.MemDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Gothic+A1&display=swap');
-		
 		body{
 			margin: 0px;
 		}
@@ -31,7 +29,7 @@
 			background-color:#c71d22;
 			line-height: 29px;
 		}
-		
+				
 		#top a{
 			margin-left : 10px;
 			text-decoration: none;
@@ -89,6 +87,21 @@
 			background-color: #ffffffd6;
 		}
 		
+		#top span{
+			background-color: transparent;
+			font-family: 'Gothic A1', sans-serif;
+			font-size: 14px;
+			color: white;		
+		}
+		
+		#user{
+			background-color: transparent;
+			font-family: 'Gothic A1', sans-serif;
+			font-size: 14px;
+			color: white;
+			float: right;
+    		margin-right: 1%;
+		}
 	</style>
 	
     <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -126,8 +139,20 @@
 <body>
 	<div id ="header">
 		<div id = "top">
-			<span> <a href="./login.do"> 로그인 </a></span>
-			<span> <a href=""> 회원가입 </a> </span>
+		<%
+			MemDTO mdto = (MemDTO)session.getAttribute("loginSession");
+			if(mdto != null){
+		%>
+				<span><a href="./login.do?m=logout">로그아웃</a></span>
+				<span id="user"> <a href="">접속자 : <%=mdto.getM_name()%></a> </span>
+		<%
+			}else{
+		%>
+				<span> <a href="./login.do"> 로그인 </a></span>
+				<span> <a href=""> 회원가입 </a> </span>
+		<%
+			}
+		%>
 		</div>
 		
 		<div id = "mid">

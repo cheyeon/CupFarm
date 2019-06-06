@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=utf-8" import="java.util.*,cf.member.model.MemDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,7 +138,9 @@
 </head>
 <body>
 	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
-	
+		<%
+			MemDTO dto = (MemDTO)session.getAttribute("loginSession");
+		%>
 	<div id="container">
 		<div id ="left_menu">
 			<div> 내 컵밥관리 </div>
@@ -151,7 +153,7 @@
 			</div>
 			
 			<div id ="cont_header">
-				<h1 class ="bounceIn"> @@님이 가지고 있는 컵밥은 @@개 입니다. </h1>
+				<h1 class ="bounceIn"> <%=dto.getM_name()%>님이 가지고 있는 컵밥은 @@개 입니다. </h1>
 			</div>
 			
 			<div class="tables">
@@ -214,6 +216,7 @@
 			</div>
 		</div>
 	</div>
+
 	<jsp:include page="../0_HFooter/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -52,8 +52,9 @@
 	    padding: 0 15px;
 	}
 
-	input:focus {
+	#login_conts input:focus {
 	  outline: none;
+	  background: #ffffff;
 	}
 		
 	#login_conts div:last-child{
@@ -85,7 +86,7 @@
 	
 	<div id="container">
 	<div id="login_conts">
-	     <form name="f" action="login.do?m=check" method="post">
+	     <form name="f" action="login.do?m=login" method="post">
 	     		<div> CUPFARM LOGIN </div>
 				<input type="text" name="id" size="20" placeholder="ID">
 				<input type="password" name="pwd" size="20" placeholder="PASSWORD">
