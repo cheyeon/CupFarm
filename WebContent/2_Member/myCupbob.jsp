@@ -139,7 +139,13 @@
 <body>
 	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
 		<%
+			String name;
 			MemDTO dto = (MemDTO)session.getAttribute("loginSession");
+			if(dto != null){
+				name = dto.getM_name()+"님이 가지고 있는 컵밥은 @@개 입니다.";
+			}else{
+				name = "로그인을 해주세요";
+			}
 		%>
 	<div id="container">
 		<div id ="left_menu">
@@ -153,7 +159,7 @@
 			</div>
 			
 			<div id ="cont_header">
-				<h1 class ="bounceIn"> <%=dto.getM_name()%>님이 가지고 있는 컵밥은 @@개 입니다. </h1>
+				<h1 class ="bounceIn"> <%=name%> </h1>
 			</div>
 			
 			<div class="tables">

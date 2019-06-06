@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=utf-8" import="java.util.*,cf.member.model.MemDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,6 +69,10 @@
 	</script>
 </head>
 <body>
+		<%
+			MemDTO f = (MemDTO)session.getAttribute("loginSession");
+			if(f != null){
+		%>
 	<div id ="footer">
 		<a href="">
 			<div id = "eat">
@@ -77,5 +80,8 @@
 			</div>
 		</a>
 	</div>
+		<%
+			}else{}
+		%>
 </body>
 </html>
