@@ -94,8 +94,23 @@
     <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
       $( document ).ready( function() {
-    	  //메뉴위치 파악
+      	//브라우저 높이알아내기
+      	$.contH = function(){
+      		var bwheight = $(window).height();
+      		var hdheight = $('#header').height();
+      		var contheight = bwheight-hdheight;
+      		$('#container').css("min-height",contheight);   		
+      	}
+      	
+    	//메뉴위치 파악
         var botOffset = $(  '#bottom' ).offset();
+    	
+    	$.contH();
+    	
+    	//브라우저바뀔때마다
+    	$(window).resize(function(){
+        	$.contH();
+    	});
     	  
         $( window ).scroll( function() {
         	//스크롤바가 메뉴보다 아래면 고정하라
