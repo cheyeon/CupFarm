@@ -5,26 +5,25 @@ import java.sql.Date;
 
 public class MemDTO {
 
-	private int no;
+	
 	private String name;
 	private String id;
 	private String pwd;
 	private String phone;
-	private Date joindate;
+	private Date ldate;
+	private Date mdate;
 	
-	public MemDTO(int no, String name, String id, String pwd, String phone, Date joindate) {
+	public MemDTO( String name, String id, String pwd, String phone, Date ldate, Date mdate) {
 		super();
-		this.no = no;
 		this.name = name;
 		this.id = id;
 		this.pwd = pwd;
 		this.phone = phone;
-		this.joindate = joindate;
+		this.ldate = ldate;
+		this.mdate = mdate;
 	}
 
-	public int getNo() {
-		return no;
-	}
+
 
 	public String getName() {
 		return name;
@@ -42,13 +41,13 @@ public class MemDTO {
 		return phone;
 	}
 
-	public Date getJoindate() {
-		return joindate;
+	public Date getldate() {
+		return ldate;
+	}
+	public Date getmdate() {
+		return mdate;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
-	}
 
 	public void setName(String name) {
 		this.name = name;
@@ -66,10 +65,13 @@ public class MemDTO {
 		this.phone = phone;
 	}
 
-	public void setJoindate(Date joindate) {
-		this.joindate = joindate;
+	public void setldate(Date ldate) {
+		this.ldate = ldate;
 	}
 	
+	public void setmdate(Date mdate) {
+		this.mdate = mdate;
+	}
 	
 	
 	

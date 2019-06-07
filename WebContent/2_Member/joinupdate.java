@@ -21,7 +21,7 @@ public class Joinupdate extends HttpServlet {
     private Connection conn;
     private Statement stmt;
     private String query;
-    private String driver,url,uId,uPw,name,id,pwd,phone,joindate;
+    private String driver,url,uId,uPw,name,id,pwd,phone,ldate,mdate;
     
     driver = "oracle.jdbc.driver.OracleDriver";
     url = "jdbc:oracle:thin:@203.236.209.195:1521/JAVA";
@@ -53,14 +53,16 @@ public class Joinupdate extends HttpServlet {
         id = request.getParameter("id");
         pwd = request.getParameter("pwd");
         phone = request.getParameter("ph1") + "-" +request.getParameter("ph2") + "-" + request.getParameter("ph3");
-        joindate = request.getParameter("SYSDATE");
+        ldate = request.getParameter("SYSDATE");
+        mdate = request.getParameter("SYSDATE");		// 여기 수정해야함 ㅜ
         
         query = "insert into member values('"
                 +name+"', '"
                 +id+"', '"
                 +pwd+"', '"
                 +phone+"', '"
-                +joindate+"')";
+                 +ldate+"', '"
+                +mdate+"')";
  
         try{
             Class.forName(driver);

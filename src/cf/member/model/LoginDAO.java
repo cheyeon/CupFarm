@@ -28,16 +28,16 @@ class LoginDAO {
 	   try {
 		   con = ds.getConnection();
 		   pstmt = con.prepareStatement(sql);
-		   pstmt.setString(3, id);
+		   pstmt.setString(2, id);
 		   rs = pstmt.executeQuery();
 		   if(rs.next()) {
-			    int no = rs.getInt(1);
 			    String name = rs.getString(1); 
-				String pwd = rs.getString(4);
-				String phone =rs.getString(5);
-				Date joindate = rs.getDate(6);
+				String pwd = rs.getString(3);
+				String phone =rs.getString(4);
+				Date ldate = rs.getDate(5);
+				Date mdate = rs.getDate(6);
 				
-				return new MemDTO(no, name, id, pwd, phone, joindate);
+				return new MemDTO(name, id, pwd, phone, ldate, mdate);
 		   }else {
 			   return null;
 		   }
