@@ -5,74 +5,86 @@ import java.sql.Date;
 
 public class MemDTO {
 
+	private String m_id;
+	private String m_name;
+	private String m_pwd;
+	private String m_phone;
+	private Date m_ldate;
+	private Date m_mdate;
 	
-	private String name;
-	private String id;
-	private String pwd;
-	private String phone;
-	private Date ldate;
-	private Date mdate;
 	
-	public MemDTO( String name, String id, String pwd, String phone, Date ldate, Date mdate) {
+	public MemDTO(String m_id, String m_name, String m_pwd, String m_phone, Date m_ldate, Date m_mdate) {
 		super();
-		this.name = name;
-		this.id = id;
-		this.pwd = pwd;
-		this.phone = phone;
-		this.ldate = ldate;
-		this.mdate = mdate;
+		this.m_id = m_id;
+		this.m_name = m_name;
+		this.m_pwd = m_pwd;
+		this.m_phone = m_phone;
+		this.m_ldate = m_ldate;
+		this.m_mdate = m_mdate;
 	}
 
 
-
-	public String getName() {
-		return name;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public String getPwd() {
-		return pwd;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public Date getldate() {
-		return ldate;
-	}
-	public Date getmdate() {
-		return mdate;
+	public String getM_id() {
+		return m_id;
 	}
 
 
-	public void setName(String name) {
-		this.name = name;
+	public String getM_name() {
+		return m_name;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+
+	public String getM_pwd() {
+		return m_pwd;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+
+	public String getM_phone() {
+		return m_phone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+
+	public Date getM_ldate() {
+		return m_ldate;
 	}
 
-	public void setldate(Date ldate) {
-		this.ldate = ldate;
+
+	public Date getM_mdate() {
+		return m_mdate;
 	}
-	
-	public void setmdate(Date mdate) {
-		this.mdate = mdate;
+
+
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
 	}
-	
+
+
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
+
+
+	public void setM_pwd(String m_pwd) {
+		this.m_pwd = m_pwd;
+	}
+
+
+	public void setM_phone(String m_phone) {
+		this.m_phone = m_phone;
+	}
+
+
+	public void setM_ldate(Date m_ldate) {
+		this.m_ldate = m_ldate;
+	}
+
+
+	public void setM_mdate(Date m_mdate) {
+		this.m_mdate = m_mdate;
+	}
+
 	
 	
 }
+
+

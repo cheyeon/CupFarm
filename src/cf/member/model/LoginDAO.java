@@ -31,23 +31,11 @@ class LoginDAO {
 	   try {
 		   con = ds.getConnection();
 		   pstmt = con.prepareStatement(sql);
-<<<<<<< HEAD
-		   pstmt.setString(2, id);
-=======
+
 		   pstmt.setString(1, id);
->>>>>>> cheyeon_html
 		   rs = pstmt.executeQuery();
 		   
 		   if(rs.next()) {
-<<<<<<< HEAD
-			    String name = rs.getString(1); 
-				String pwd = rs.getString(3);
-				String phone =rs.getString(4);
-				Date ldate = rs.getDate(5);
-				Date mdate = rs.getDate(6);
-				
-				return new MemDTO(name, id, pwd, phone, ldate, mdate);
-=======
 			   String m_id = rs.getString(1);
 			   String m_name = rs.getString(2);
 			   String m_pwd = rs.getString(3);
@@ -57,7 +45,6 @@ class LoginDAO {
 			   
 				MemDTO dto = new MemDTO(m_id, m_name, m_pwd, m_phone, m_ldate, m_mdate);
 				return dto;
->>>>>>> cheyeon_html
 		   }else {
 			   return null;
 		   }
