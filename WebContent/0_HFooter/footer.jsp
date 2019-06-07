@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=utf-8" import="java.util.*,cf.member.model.MemDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,10 +41,47 @@
     		margin: 11px;
 		    line-height:90px;
 		}
+		
+		#togglePageBack{
+		    background: #00000094;
+		    position: fixed;
+		    width: 100%;
+		    height: 100%;
+		    z-index: 1;
+		    top: 0;
+		    display:none;
+		}
+		
+		#togglePage{
+			background: white;
+		    width: 300px;
+		    height: 55%;
+		    margin: auto;
+		    margin-top: 32px;
+		    border-radius: 26px;
+		    padding: 4%;
+		    box-shadow: -1px 3px 10px #383838;
+		}
 	</style>
 	
 	<script>
 		$(document).ready(function() {
+			//버튼눌렀을때
+			$('#footer').click(function(){
+				$("#togglePageBack").toggle();
+			});
+			
+	      	//브라우저 높이알아내기
+	      	$.contentHeight = function(){
+	      		var bwheight = window.innerHeight;
+	      		$('#togglePageBack').css("height",bwheight);   		
+	      	}
+	    	$.contentHeight();
+	    	
+	    	//브라우저바뀔때마다
+	    	$(window).resize(function(){
+	    		$.contentHeight();
+	    	});
 	
 			// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
 			var floatPosition = parseInt($("#footer").css('top'));
@@ -56,26 +92,30 @@
 				var scrollTop = $(window).scrollTop();
 				var newPosition = scrollTop + floatPosition + "px";
 	
-				/* 애니메이션 없이 바로 따라감
-				 $("#floatMenu").css('top', newPosition);
-				 */
-	
 				$("#footer").stop().animate({
 					"top" : newPosition
 				}, 500);
-	
 			}).scroll();
 	
 		});
 	</script>
 </head>
 <body>
+		<%
+			MemDTO f = (MemDTO)session.getAttribute("loginSession");
+			if(f != null){
+		%>
+	<div id="togglePageBack">
+		<div id="togglePage">ggggg</div>
+	</div>	
+	
 	<div id ="footer">
-		<a href="">
 			<div id = "eat">
 				<img alt="cupfarmlogo" src="./img/컵팜로고3.png" id="eatimg">
 			</div>
-		</a>
 	</div>
+		<%
+			}else{}
+		%>
 </body>
 </html>
