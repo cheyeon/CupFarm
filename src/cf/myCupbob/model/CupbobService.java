@@ -17,7 +17,7 @@ public class CupbobService {
 	public ArrayList<McbDTO> cupbobListS(String id){
 		return dao.cupbobList(id);
 	}
-	
+		
 	//ÄÅ¹ä¸Ô±â
 	public void eatCupbobS(int idx) {
 		dao.eatCupbob(idx);
