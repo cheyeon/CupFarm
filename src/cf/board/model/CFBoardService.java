@@ -23,6 +23,10 @@ public class CFBoardService {
 	public int consuS() {
 		return cfdao.consu();
 		
+	}
+	public ArrayList<CFBoardDTO> tseachS(String tseachval){
+		return  cfdao.tseach(tseachval);
+		
 		
 	}
 	

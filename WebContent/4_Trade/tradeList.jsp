@@ -136,13 +136,13 @@
 	<div class ="top_search">
 		<div class="search_title">컵밥 교환 게시판</div>
 		<div class="search">
-			<form action="" method="">
+			<form action="./board.do?m=tlistseach" method="post">
 				<div>
-					<input type="text" placeholder="검색어 입력">
+					<input name=tseachval type="text" placeholder="검색어 입력">
 					<button class="search_button" type="submit">검색</button>
 				</div>
 			</form>
-		</div>
+		</div>	
 	</div>
 	
 	<div id="container">
@@ -180,8 +180,8 @@
 <%
 	
 	int pagesu = (int)request.getAttribute("pagesu");
-	int strs[] = new int[pagesu+1];
-			for(int i=1;i<strs.length;i++){
+	int strs[] = new int[pagesu];
+			for(int i=0;i<(pagesu);i++){
 				strs[i]=i;
 			}
 %>
@@ -194,10 +194,10 @@
 
            |
 <%
-	for(int i=0;i<strs.length;i++){
+	for(int i=0;i<pagesu;i++){
 %>
-             <a href="board.do?m=tradelist&cp=2&ps=<%=strs[i]%>">
-<b><%=strs[i] %></b>
+             <a href="./board.do?m=tradelist&cp=10&ps=<%=strs[i]+1%>">
+<b><%=strs[i]+1 %></b>
 
              </a> 
 
@@ -207,6 +207,13 @@
 %>
 
 
+
+<form action="./board.do?m=tinputform" method="post">
+				<div>
+					
+					<button class="search_button" type="submit">입력</button>
+				</div>
+			</form>
 
 
 
