@@ -1,4 +1,4 @@
-package cf.member.model.MemDTO;
+package cf.member.model;
  
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,28 +11,44 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
+import cf.member.model.DBConnection;
 
-@WebServlet("/join.do")
-public class Joinupdate extends HttpServlet {
+@WebServlet("/join.do") //얘가 있으면 컨트롤임
+public class Joincontrol extends HttpServlet {
     private static final long serialVersionUID = 1L;
        
     
     private Connection conn;
     private Statement stmt;
     private String query;
-    private String driver,url,uId,uPw,name,id,pwd,phone,joindate;
+    private String driver,url,uId,uPw,m_id,m_name,m_pwd,m_phone,m_ldate,m_mdate;
     
-    driver = "oracle.jdbc.driver.OracleDriver";
-    url = "jdbc:oracle:thin:@203.236.209.195:1521/JAVA";
-    String uId ="cupbob";
-    String uPw ="JAVA";
- 
-    public joinupdate() {
+
+	public void service(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		String m = request.getParameter("m");
+		
+		
+		if(m != null) {
+			m = m.trim();
+			switch(m) {
+				case "join" : join(request, response); break;
+				case "logout" : logout(request, response); break;
+				default : join_form(request, response); break; //진심여기어케고쳐야할지 몰겟음
+			}
+		}else {
+			join_form(request, response);
+		}		
+	
+	}
+		
+		
+		
+    public Joincontrol() {
         super();
 
     }
- 
+	
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         actionDo(request, response);
     }
@@ -42,25 +58,21 @@ public class Joinupdate extends HttpServlet {
     }
  
     private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        request.setCharacterEncoding("UTF-8");
-        driver = "oracle.jdbc.driver.OracleDriver";
-        url = "jdbc:oracle:thin:@203.236.209.195:1521/JAVA";
-        String uId ="cupbob";
-        String uPw ="JAVA";
-        
-        name = request.getParameter("name");
-        id = request.getParameter("id");
-        pwd = request.getParameter("pwd");
-        phone = request.getParameter("ph1") + "-" +request.getParameter("ph2") + "-" + request.getParameter("ph3");
-        joindate = request.getParameter("SYSDATE");
+
+        m_id = request.getParameter("m_id");
+        m_name = request.getParameter("m_name");
+        m_pwd = request.getParameter("m_pwd");
+        m_phone = request.getParameter("ph1") + "-" +request.getParameter("ph2") + "-" + request.getParameter("ph3");
+        m_ldate = request.getParameter("m_ldate");
+        m_mdate = request.getParameter("m_mdate");
         
         query = "insert into member values('"
-                +name+"', '"
-                +id+"', '"
-                +pwd+"', '"
-                +phone+"', '"
-                +joindate+"')";
+                +m_name+"', '"
+                +m_id+"', '"
+                +m_pwd+"', '"
+                +m_phone+"', '"
+                +m_ldate+"', '"
+                +m_mdate+"')";
  
         try{
             Class.forName(driver);
