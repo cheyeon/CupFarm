@@ -1,6 +1,7 @@
 package cf.board.control;
 
 import java.io.IOException;
+import java.math.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,6 +24,7 @@ public class CFBoardControl extends HttpServlet {
 		String m = request.getParameter("m");
 		System.out.println("m값들옴"+m);
 	
+	
 		
 		if(m !=null) {
 			
@@ -31,6 +33,15 @@ public class CFBoardControl extends HttpServlet {
 				tradelist(request, response);
 		
 			}else if(m.equals("salelist")){
+				
+			}else if(m.equals("tlistseach")) {
+				seachbox(request, response);
+			}
+			else if(m.equals("tinputform")){
+				tinputform(request,response);
+				
+			}else if(m.equals("tinput")) {
+				tinput(request,response);
 				
 			}else {}
 			
@@ -59,10 +70,39 @@ public class CFBoardControl extends HttpServlet {
 		
 		int cp = Integer.parseInt(Strcp);
 		
-		int pagesu = (int) Math.ceil(consu/cp);
+		int pagesu = (int) Math.ceil((double)consu/cp);
+		System.out.println("총게시물수 : "+consu+"페이지당 게시물수 : "+cp+"그러면페이지수가어? : "+pagesu );
 		request.setAttribute("pagesu", pagesu);
 		request.setAttribute("list", tlist);
 		RequestDispatcher rd = request.getRequestDispatcher("4_Trade/tradeList.jsp");
 		rd.forward(request, response);
+	}
+	
+	
+	private void seachbox(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException{
+		String tseachval = request.getParameter("tseachval");
+		CFBoardService service = CFBoardService.getInstance();
+		ArrayList<CFBoardDTO> tslist = service.tseachS(tseachval);
+		request.setAttribute("pagesu", 11);
+		request.setAttribute("list", tslist);
+		RequestDispatcher rd = request.getRequestDispatcher("4_Trade/tradeList.jsp");
+		rd.forward(request, response);
+		
+	}
+	private void tinputform(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException{
+		
+		RequestDispatcher rd = request.getRequestDispatcher("4_Trade/tinForm.jsp");
+		rd.forward(request, response);
+	
+	}
+	
+	private void tinput(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException{
+		String t = request.getParameter("selectbox");
+		String tt = request.getParameter("content");
+		System.out.println(tt+"ddd");
+		System.out.println(t+"ddddd");
 	}
 }

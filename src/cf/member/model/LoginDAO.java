@@ -64,7 +64,6 @@ class LoginDAO {
 	void updateLogin(String id) {
 		   Connection con = null;
 		   PreparedStatement pstmt = null;
-		   ResultSet rs = null;
 		   String sql = LoginSQL.sqlL;
 		   
 		   try {
@@ -75,7 +74,6 @@ class LoginDAO {
 		   }catch(SQLException se) {
 		   }finally {
 			   try {
-				   if(rs != null) rs.close();
 				   if(pstmt != null) pstmt.close();
 				   if(con != null) con.close();
 			   }catch(SQLException se) {
