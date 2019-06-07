@@ -10,7 +10,7 @@
  <body>
  <jsp:include page="../0_HFooter/header.jsp"></jsp:include>
 
- <form name="write_form_member" method="post">
+ <form name="write_form_member" method="post" action="join.do?m=join">
    <table width="940" style="padding:5px 0 5px 0; ">
       <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
       <tr>

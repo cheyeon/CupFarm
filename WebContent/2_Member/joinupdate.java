@@ -33,8 +33,9 @@ public class Joinupdate extends HttpServlet {
 
     }
  
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        actionDo(request, response);
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+     String m =  request.getParameter("m");
+     System.out.println(m);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
