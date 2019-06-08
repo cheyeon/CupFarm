@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8" import="java.util.*,cf.member.model.MemDTO"%>
+<%@ page contentType="text/html;charset=utf-8" import="java.util.*,cf.member.model.MemDTO,cf.myCupbob.model.McbDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,15 +138,6 @@
 </head>
 <body>
 	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
-		<%
-			String name;
-			MemDTO dto = (MemDTO)session.getAttribute("loginSession");
-			if(dto != null){
-				name = dto.getM_name()+"님이 가지고 있는 컵밥은 @@개 입니다.";
-			}else{
-				name = "로그인을 해주세요";
-			}
-		%>
 	<div id="container">
 		<div id ="left_menu">
 			<div> 내 컵밥관리 </div>
@@ -157,13 +148,23 @@
 			<div id = "cont_top">
 				<div>	지금 나의 컵밥	</div>
 			</div>
+		<%
+			String name;
+			MemDTO dto = (MemDTO)session.getAttribute("loginSession");
 			
+			if(dto != null){
+				name = dto.getM_name()+"님이 가지고 있는 컵밥은 @@개 입니다.";
+			}else{
+				name = "로그인을 해주세요";
+			}
+		%>			
 			<div id ="cont_header">
 				<h1 class ="bounceIn"> <%=name%> </h1>
 			</div>
-			
+		<%
+		if(dto != null){
+		%>
 			<div class="tables">
-
 				<table>
 					<col width="13%">
 					<col width="35%">
@@ -177,48 +178,35 @@
 						<th>구매날짜</th>
 					</tr>
 					
+		<%
+			ArrayList<McbDTO> list = (ArrayList<McbDTO>) request.getAttribute("list");
+			for(McbDTO cbdto:list){
+				if(cbdto.getC_state()==1){
+		%>
 					<tr>
-						<td>1</td>
-						<td>웅앵웅ㅇ앵웅앵웅</td>
-						<td>시발</td>
-						<td>시발</td>
+						<td><%=cbdto.getC_idx()%></td>
+						<td><%=cbdto.getC_name()%></td>
+		<%
+						if(cbdto.getG_name().equals("그룹없음")){
+		%>
+						<td id="ps_td"><%=dto.getM_name()%>님의 개인컵밥</td>
+		<% 					
+						}else{
+		%>
+						<td id="gr_td"><%=cbdto.getG_name()%></td>
+		<% 					
+						}
+		%>
+						<td><%=cbdto.getC_cdate()%></td>
 					</tr>
-
-					<tr>
-						<td>2</td>
-						<td>시발</td>
-						<td>시발</td>
-						<td>시발</td>
-					</tr>
-
-					<tr>
-						<td>3</td>
-						<td>시발</td>
-						<td>시발</td>
-						<td>시발</td>
-					</tr>
-
-					<tr>
-						<td>4</td>
-						<td>시발</td>
-						<td>시발</td>
-						<td>시발</td>
-					</tr>
-
-					<tr>
-						<td>5</td>
-						<td>시발</td>
-						<td>시발</td>
-						<td>시발</td>
-					</tr>
-
-					<tr>
-						<td>6</td>
-						<td>시발</td>
-						<td>시발</td>
-						<td>시발</td>
-					</tr>
+		<%
+				}
+			}				
+		%>
 				</table>
+		<%
+		}else{}
+		%>
 			</div>
 		</div>
 	</div>

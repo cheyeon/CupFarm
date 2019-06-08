@@ -56,11 +56,19 @@
 			background: white;
 		    width: 300px;
 		    height: 55%;
-		    margin: auto;
-		    margin-top: 32px;
 		    border-radius: 26px;
 		    padding: 4%;
 		    box-shadow: -1px 3px 10px #383838;
+		    position: absolute;
+		    top:50%;
+		    left:50%;
+		    transform:translate(-50%, -50%);
+		}
+		
+		#backToggle{
+		    background-color: transparent;
+		    width:100%;
+		    height:100%;
 		}
 	</style>
 	
@@ -68,6 +76,9 @@
 		$(document).ready(function() {
 			//버튼눌렀을때
 			$('#footer').click(function(){
+				$("#togglePageBack").toggle();
+			});
+			$("#backToggle").click(function(){
 				$("#togglePageBack").toggle();
 			});
 			
@@ -86,7 +97,7 @@
 			// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
 			var floatPosition = parseInt($("#footer").css('top'));
 			// 250px 이런식으로 가져오므로 여기서 숫자만 가져온다. parseInt( 값 );
-	
+					
 			$(window).scroll(function() {
 				// 현재 스크롤 위치를 가져온다.
 				var scrollTop = $(window).scrollTop();
@@ -106,6 +117,7 @@
 			if(f != null){
 		%>
 	<div id="togglePageBack">
+		<div id="backToggle"></div>
 		<div id="togglePage">ggggg</div>
 	</div>	
 	

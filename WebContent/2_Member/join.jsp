@@ -10,22 +10,24 @@
  <body>
  <jsp:include page="../0_HFooter/header.jsp"></jsp:include>
 
- <form name="write_form_member" method="post">
+ <form name="write_form_member" method="post" action="../join.do?m=join">
    <table width="940" style="padding:5px 0 5px 0; ">
       <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
-      <tr>
-         <th> 이름</th>
-         <td><input type="text" name="name"></td>
-      </tr>
        <tr>
          <th>아이디</th>
          <td>
-         <input type="text" name="id">
+         <input type="text" name="m_id">
          </td>
        </tr>
+  
+      <tr>
+         <th> 이름</th>
+         <td><input type="text" name="m_name"></td>
+      </tr>
+  
        <tr>
          <th>비밀번호</th>
-         <td><input type="password" name="pwd"></td>
+         <td><input type="password" name="m_pwd"></td>
        </tr>
                <tr>
           <th>핸드폰 번호</th>

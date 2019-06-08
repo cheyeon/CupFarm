@@ -60,21 +60,19 @@ class LoginDAO {
 	}
 	
 	//로그인날짜 업데이트
-	void updateLogin(String id) {
+	void updateLogin(String m_id) {
 		   Connection con = null;
 		   PreparedStatement pstmt = null;
-		   ResultSet rs = null;
 		   String sql = LoginSQL.sqlL;
 		   
 		   try {
 			   con = ds.getConnection();
 			   pstmt = con.prepareStatement(sql);
-			   pstmt.setString(1, id);
+			   pstmt.setString(1, m_id);
 			   pstmt.executeUpdate();
 		   }catch(SQLException se) {
 		   }finally {
 			   try {
-				   if(rs != null) rs.close();
 				   if(pstmt != null) pstmt.close();
 				   if(con != null) con.close();
 			   }catch(SQLException se) {
