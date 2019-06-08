@@ -99,7 +99,7 @@ public class MemDAO {
       }
        return x;
   }
-  
+  /*
   //회원 상세정보
    public MemDTO getMember(String m_id)throws Exception{
      Connection conn =null;
@@ -116,11 +116,11 @@ public class MemDAO {
 
           if(rs.next()){
               member= new MemDTO();
-              member.setM_Id(rs.getString("m_id"));
+              member.setM_id(rs.getString("m_id"));
               member.setM_name(rs.getString("m_name"));
                member.setM_pwd(rs.getString("m_pwd"));
               member.setM_phone(rs.getString("m_phone"));
-               member.setDate(rs.getString("m_ldate"));
+               member.setM_ldate(rs.getString("m_ldate"));
                member.setDate(rs.getString("m_mdate"));
 
     //          member.setReg_date(rs.getTimestamp("reg_date"));
@@ -199,7 +199,7 @@ public class MemDAO {
       }       
        return x;
    }
-
+*/
    //자원 정리를 위한 메소드
    //계란노른자
    //Connection 를통해서 PreparedStatement 를생성하고

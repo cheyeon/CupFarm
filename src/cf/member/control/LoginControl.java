@@ -1,6 +1,7 @@
 package cf.member.control;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import cf.member.model.*;
+import cf.myCupbob.model.McbDTO;
+import cf.myCupbob.model.CupbobService;
 
 
 @WebServlet("/login.do")
@@ -47,6 +50,10 @@ public class LoginControl extends HttpServlet {
 		LoginService service = LoginService.getInstance();
 		Object obj[] = service.loginS(id, pwd);
 		
+		//呐逛技记 **
+		CupbobService serviceC = CupbobService.getInstance();
+		ArrayList<McbDTO> list = serviceC.cupbobListS(id);
+		
 		//技记蜡瘤甫 困秦 session按眉 积己
 		HttpSession session = request.getSession();
 		
@@ -54,6 +61,7 @@ public class LoginControl extends HttpServlet {
 		MemDTO dto = (MemDTO)obj[0];
 		int result = (int)obj[1];
 		if(result == 2) session.setAttribute("loginSession", dto);
+		session.setAttribute("list", list);
 		request.setAttribute("result", result);
 
 		RequestDispatcher rd = request.getRequestDispatcher("./2_Member/msg.jsp");

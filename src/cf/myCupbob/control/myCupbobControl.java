@@ -23,27 +23,14 @@ public class myCupbobControl extends HttpServlet {
 		if(m != null){
 			m = m.trim();
 			switch(m) {
-			 case "mcb_list" : myCupBobList(request, response); break;
+			 case "" : ; break;
 			 default : myCupBob(request, response);
 			}
 		}else {
 			myCupBob(request, response);
 		}
 	}
-
-	//아이디있을때
-	protected void myCupBobList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		CupbobService service = CupbobService.getInstance();
-		
-		ArrayList<McbDTO> list = service.cupbobListS(id);
-		
-		request.setAttribute("list", list);
-		RequestDispatcher rd = request.getRequestDispatcher("2_Member/myCupbob.jsp");
-		rd.forward(request, response);
-	}
 	
-	//아이디없을때
 	protected void myCupBob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		RequestDispatcher rd = request.getRequestDispatcher("2_Member/myCupbob.jsp");
 		rd.forward(request, response);

@@ -151,9 +151,10 @@
 		<%
 			String name;
 			MemDTO dto = (MemDTO)session.getAttribute("loginSession");
+			ArrayList<McbDTO> list = (ArrayList<McbDTO>)session.getAttribute("list");
 			
 			if(dto != null){
-				name = dto.getM_name()+"님이 가지고 있는 컵밥은 @@개 입니다.";
+				name = dto.getM_name()+"님이 가지고 계신 컵밥은 "+list.size()+"개 입니다.";
 			}else{
 				name = "로그인을 해주세요";
 			}
@@ -179,8 +180,15 @@
 					</tr>
 					
 		<%
-			ArrayList<McbDTO> list = (ArrayList<McbDTO>) request.getAttribute("list");
-			for(McbDTO cbdto:list){
+			if(list.size()==0){
+		%>
+				<tr>
+					<td colspan="4"> 현재 가지고있는 컵밥이 없습니다 </td>
+				</tr>
+		<%			
+			}
+		
+			for(McbDTO cbdto : list){
 				if(cbdto.getC_state()==1){
 		%>
 					<tr>

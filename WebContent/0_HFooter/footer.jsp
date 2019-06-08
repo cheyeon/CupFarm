@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8" import="java.util.*,cf.member.model.MemDTO"%>
+<%@ page contentType="text/html;charset=utf-8" import="java.util.*,cf.member.model.MemDTO,cf.myCupbob.model.McbDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,10 +76,10 @@
 		$(document).ready(function() {
 			//버튼눌렀을때
 			$('#footer').click(function(){
-				$("#togglePageBack").toggle();
+				$("#togglePageBack").fadeToggle("fast");
 			});
 			$("#backToggle").click(function(){
-				$("#togglePageBack").toggle();
+				$("#togglePageBack").fadeToggle("fast");
 			});
 			
 	      	//브라우저 높이알아내기
@@ -118,7 +118,44 @@
 		%>
 	<div id="togglePageBack">
 		<div id="backToggle"></div>
-		<div id="togglePage">ggggg</div>
+		<div id="togglePage">
+			<div> 내가 가지고 있는 컵밥들 </div>
+			<form method="post" action="my.do?m=eat">
+				<div>
+					<select name="select_cb">
+						<%
+							ArrayList<McbDTO> l = (ArrayList<McbDTO>)session.getAttribute("list");
+								if(l.size()==0){
+									%>
+										<option value=""> 현재 가지고있는 컵밥이 없습니다 </option>									
+									<%
+								}else{
+									%>
+										<option value="">먹을 컵밥을 선택해주세요</option>
+									<%
+									for(McbDTO m : l){
+										if(m.getC_state()==1){
+											if(m.getG_name().equals("그룹없음")){
+						%>
+											<option value="<%=m.getC_idx()%>">[<%=f.getM_name()%>님의 개인컵밥] <%=m.getC_name()%></option>
+						<%
+											}else{
+						%>
+											<option value="<%=m.getC_idx()%>">[<%=m.getG_name()%>] <%=m.getC_name()%></option>											
+						<%
+											}
+									}
+								}
+							}
+						%>
+					</select>	
+				</div>			
+				
+				<div>
+					
+				</div>	
+			</form>
+		</div>
 	</div>	
 	
 	<div id ="footer">

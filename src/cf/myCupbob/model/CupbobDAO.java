@@ -69,11 +69,9 @@ public class CupbobDAO {
 	   Connection con = null;
 	   PreparedStatement pstmt = null;
 	   ResultSet rs = null;
-	   String sql = McbSQL.sqlC;
+	   String sql = McbSQL.sqlC;   
 	   
-	   
-	   
-		return count;
+		return -1;
 	}
 	
 	//ÄÅ¹ä¸Ô±â
