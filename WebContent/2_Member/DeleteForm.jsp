@@ -7,8 +7,8 @@
     }else{
 %> 
 <%
-   String id =request.getParameter("m_id");
-   String passwd = request.getParameter("m_pwd");
+   String m_id =request.getParameter("m_id");
+   String m_pwd = request.getParameter("m_pwd");
     
    MemDAO manager = MemDAO.getInstance();
    int check= manager.userCheck(m_id, m_pwd);
