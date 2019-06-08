@@ -143,7 +143,7 @@
 						%>
 											<option value="<%=m.getC_idx()%>">[<%=m.getG_name()%>] <%=m.getC_name()%></option>											
 						<%
-											}
+										}
 									}
 								}
 							}
@@ -152,7 +152,7 @@
 				</div>			
 				
 				<div>
-					
+					<button type="submit"> 먹기 </button>
 				</div>	
 			</form>
 		</div>
