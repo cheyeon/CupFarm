@@ -9,10 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
 import java.util.*;
 
 import cf.board.model.CFBoardDTO;
 import cf.board.model.CFBoardService;
+import cf.member.model.MemDTO;
 
 
 @WebServlet("/board.do")
@@ -24,6 +28,7 @@ public class CFBoardControl extends HttpServlet {
 		String m = request.getParameter("m");
 		System.out.println("m°ªµé¿È"+m);
 	
+		
 	
 		
 		if(m !=null) {
@@ -84,7 +89,7 @@ public class CFBoardControl extends HttpServlet {
 		String tseachval = request.getParameter("tseachval");
 		CFBoardService service = CFBoardService.getInstance();
 		ArrayList<CFBoardDTO> tslist = service.tseachS(tseachval);
-		request.setAttribute("pagesu", 11);
+		request.setAttribute("pagesu", 1);
 		request.setAttribute("list", tslist);
 		RequestDispatcher rd = request.getRequestDispatcher("4_Trade/tradeList.jsp");
 		rd.forward(request, response);
@@ -99,10 +104,31 @@ public class CFBoardControl extends HttpServlet {
 	}
 	
 	private void tinput(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException{
-		String t = request.getParameter("selectbox");
-		String tt = request.getParameter("content");
-		System.out.println(tt+"ddd");
-		System.out.println(t+"ddddd");
+			throws ServletException, IOException{	
+		CFBoardService service = CFBoardService.getInstance();	
+		
+	
+		
+		
+		
+		
+		HttpSession session=request.getSession();
+		MemDTO mdto = (MemDTO)session.getAttribute("loginSession");
+		String subject = request.getParameter("subject");
+		String content = request.getParameter("content");
+		String Strpwd = request.getParameter("pwd");
+		int pwd = Integer.parseInt(Strpwd);
+		String id= mdto.getM_id();
+		CFBoardDTO cfdto = new CFBoardDTO(-1, "T", subject, id, content, 1, 1, pwd, null);
+		service.tinputS(cfdto);
+		RequestDispatcher rd = request.getRequestDispatcher("./board.do?m=tradelist&cp=10&ps=1");
+		rd.forward(request, response);
+		
+	
+		
+		
 	}
+	
+	
+	
 }

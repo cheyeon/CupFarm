@@ -1,4 +1,5 @@
 package cf.board.model;
+import cf.member.model.MemDTO;
 
 import java.util.*;
 
@@ -26,6 +27,10 @@ public class CFBoardService {
 	}
 	public ArrayList<CFBoardDTO> tseachS(String tseachval){
 		return  cfdao.tseach(tseachval);
+	
+	}
+	public void tinputS(CFBoardDTO dto) {
+		cfdao.tinput(dto);
 		
 		
 	}
