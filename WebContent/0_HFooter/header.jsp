@@ -144,6 +144,7 @@
 			MemDTO mdto = (MemDTO)session.getAttribute("loginSession");
 			String mycupbob = null;
 			if(mdto != null){
+				mycupbob="my.do?m=cb_list&id="+mdto.getM_id();
 		%>
 				<span><a href="./login.do?m=logout">로그아웃</a></span>
 				<span id="user"> <a href="">접속자 : <%=mdto.getM_name()%></a> </span>
@@ -152,7 +153,7 @@
 				mycupbob = "my.do";
 		%>
 				<span> <a href="./login.do"> 로그인 </a></span>
-				<span> <a href="./2_Member/join.jsp"> 회원가입 </a> </span>
+				<span> <a href="./join.do"> 회원가입 </a> </span>
 		<%
 			}
 		%>
@@ -165,7 +166,7 @@
 		<div id = "bottom">
 			<ul>
 				<li> <a href=""> 컵팜  </a> </li>
-				<li> <a href="./my.do"> 내 컵밥관리  </a> </li>
+				<li> <a href="<%=mycupbob%>"> 내 컵밥관리  </a> </li>
 				<li> <a href="./group.do"> 컵밥 그룹  </a> </li>
 				<li> <a href="./board.do?m=tradelist&cp=10&ps=1"> 컵밥 교환  </a> </li>
 				<li> <a href=""> 컵밥 판매  </a> </li>

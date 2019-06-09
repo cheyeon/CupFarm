@@ -63,17 +63,7 @@ public class CupbobDAO {
 			   }			   
 		   }
 	}
-	
-	//ÄÅ¹äÄ«¿îÆ®
-	int myCupbobCount(String id) {
-	   Connection con = null;
-	   PreparedStatement pstmt = null;
-	   ResultSet rs = null;
-	   String sql = McbSQL.sqlC;   
-	   
-		return -1;
-	}
-	
+		
 	//ÄÅ¹ä¸Ô±â
 	void eatCupbob(int idx) {
 		   Connection con = null;

@@ -122,17 +122,17 @@
 			<div> 내가 가지고 있는 컵밥들 </div>
 			<form method="post" action="my.do?m=eat">
 				<div>
-					<select name="select_cb">
+					<select name="idx">
 						<%
 							ArrayList<McbDTO> l = (ArrayList<McbDTO>)session.getAttribute("list");
 								if(l.size()==0){
-									%>
+						%>
 										<option value=""> 현재 가지고있는 컵밥이 없습니다 </option>									
-									<%
+						<%
 								}else{
-									%>
+						%>
 										<option value="">먹을 컵밥을 선택해주세요</option>
-									<%
+						<%
 									for(McbDTO m : l){
 										if(m.getC_state()==1){
 											if(m.getG_name().equals("그룹없음")){

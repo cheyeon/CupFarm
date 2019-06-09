@@ -23,7 +23,8 @@ public class myCupbobControl extends HttpServlet {
 		if(m != null){
 			m = m.trim();
 			switch(m) {
-			 case "" : ; break;
+			 case "cb_list" : myCupBobList(request, response); break;
+			 case "eat" : eatCupbob(request, response); break;
 			 default : myCupBob(request, response);
 			}
 		}else {
@@ -31,9 +32,30 @@ public class myCupbobControl extends HttpServlet {
 		}
 	}
 	
+	protected void eatCupbob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		String idxS = request.getParameter("idx");
+		if(idxS!=null) {
+			int idx = Integer.parseInt(idxS);
+			CupbobService service = CupbobService.getInstance();
+			service.eatCupbobS(idx);
+		}else {
+			
+		}
+	}
+
+	
 	protected void myCupBob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		RequestDispatcher rd = request.getRequestDispatcher("2_Member/myCupbob.jsp");
 		rd.forward(request, response);
 	}
 
+	protected void myCupBobList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		String id = request.getParameter("id");
+		CupbobService service = CupbobService.getInstance();
+		ArrayList<McbDTO> list = service.cupbobListS(id);
+		request.setAttribute("list", list);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("2_Member/myCupbob.jsp");
+		rd.forward(request, response);
+	}
 }
