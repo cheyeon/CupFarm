@@ -133,96 +133,68 @@
 <body>
 	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
 
-	<div class ="top_search">
-		<div class="search_title">컵밥 교환 게시판</div>
-		<div class="search">
-			<form action="./board.do?m=tlistseach" method="post">
-				<div>
-					<input name=tseachval type="text" placeholder="검색어 입력">
-					<button class="search_button" type="submit">검색</button>
-				</div>
-			</form>
-		</div>	
-	</div>
+<% 
+	CFBoardDTO tcon = (CFBoardDTO) request.getAttribute("tcon");
+%>
 	
-	<div id="container">
-		<div id ="contents">
-			<div class="tables">
+<center>
+<hr width='600' size='2' noshade>
+<h2> CFCFCFCFCF</h2>
+&nbsp;&nbsp;&nbsp;
+<hr width='600' size='2' noshade>
+<table border='1' width='600' align='center' cellpadding='3'>
+<tr>
+<td width='100' align='center'>글번호</td>
+<td><%=tcon.getB_idx() %></td>
+</tr>
+<tr>
+<td align='center'>글쓴이</td>
+<td><%=tcon.getM_id() %></td>
+</tr>
+<tr>
+<td align='center'>글제목</td>
+<td><%=tcon.getB_title() %></td>
+</tr>
+<tr>
+<td align='center'>글내용</td>
+<td><%=tcon.getB_content() %></td>
+</tr>
+</table>
+<hr width='600' size='2' noshade>
+<b>
 
-				<table>
-					<col width="10%">
-					<col width="50%">
-					<col width="20%">
-					<col width="20%">
-					
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-					</tr>
-<%
-	ArrayList<CFBoardDTO> list = (ArrayList<CFBoardDTO>)request.getAttribute("list");
-	for(CFBoardDTO dto : list){
-%>
-					<tr>
-						<td><%=dto.getB_idx()%></td>
-						<td>
-						<a href="./board.do?m=con&idx=<%=dto.getB_idx()%>">
-						<%=dto.getB_title() %></td></a>
-						<td><%=dto.getM_id() %></td>
-						<td><%=dto.getB_wdate() %></td>
-					</tr>
+<a href='./board.do?m=tradelist&cp=10&ps=1'>목록</a>
+</b>
+<hr width='600' size='2' noshade>
 
-<%
-	}
-%>
-
-
-<%
 	
-	int pagesu = (int)request.getAttribute("pagesu");
-	int strs[] = new int[pagesu];
-			for(int i=0;i<(pagesu);i++){
-				strs[i]=i;
-			}
-%>
-		  <td colspan="5">
-		    <hr width="600" color="Maroon" size="2" noshade>
-		  </td>
-		</tr>
-		<tr>
-		  <td colspan="3" align="center">
-
-           |
-<%
-	for(int i=0;i<pagesu;i++){
-%>
-             <a href="./board.do?m=tradelist&cp=10&ps=<%=strs[i]+1%>">
-<b><%=strs[i]+1 %></b>
-
-             </a> 
-
-		   |
-<%
-	}
-%>
-
-
-
-<form action="./board.do?m=tinputform" method="post">
-				<div>
-					
-					<button class="search_button" type="submit">입력</button>
-				</div>
-			</form>
-
-
-
-				</table>
-			</div>
-		</div>
-	</div>
+	
+	
+	
+	<form name="rinform" action="./board.do?m=replyin" method="post">
+			<!-------------------------------------------------------------->
+			<!-- <input type="hidden"  name="method" value="writeOk"> -->
+			<table align="center" width="600" cellspacing="1" cellpadding="3"
+				border="1">
+		
+				<tr>
+					<td align="center" width="20%">내용</td>
+					<td align="center" width="80%"><textarea name="content"
+							rows="1" cols="60"></textarea></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="button"
+						value="댓입력" onclick="submit()"> <input type="reset"
+						value="다시쓰기" ></td>
+				</tr>
+				<input type="hidden" value="<%= tcon.getB_idx()%>" name="b_idx">
+				
+</center>	
+	
+	
+	
+	
+	
 	<jsp:include page="../0_HFooter/footer.jsp"></jsp:include>
 </body>
 </html>
