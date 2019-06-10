@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" import="java.util.*,cf.board.model.CFBoardDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" import="java.util.*,cf.board.model.CFBoardDTO,cf.myCupbob.model.McbDTO"%>
 
 
  <html>
@@ -34,13 +34,34 @@
 				<tr>
 					<td align="center" width="20%">패스워드</td>
 					<td align="center" width="80%"><input type="text" name="pwd"
-						size="4" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">숫자4자리</td>
+						size="4" maxlength="4" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">숫자4자리
+					<select name="select_cp">
+					<option value="">교환할 컵밥을 선택해주세요</option>
+<%
+		ArrayList<McbDTO> mycupList = (ArrayList<McbDTO>)request.getAttribute("mycupList");
+		for(McbDTO mcbdto : mycupList){
+%>					
+					<option value="<%=mcbdto.getC_idx()%>"> ::<%=mcbdto.getG_name() %>:: <%=mcbdto.getC_name() %></option>											
+						
+							
+																		
+<%
+		}
+%>	
+						
+					</select>	
+						
+					
+					
+					</td>
+						
 				</tr>
 						<tr>
 					<td align="center" colspan="2"><input type="button"
 						value="전송하기" onclick="submit()"> <input type="reset"
 						value="다시쓰기" ></td>
 				</tr>
+				
 			</table>
 		</form>
 		<hr width="600" color="Maroon" size="2" noshade>
