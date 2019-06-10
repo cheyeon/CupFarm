@@ -107,8 +107,6 @@
 	                <input type="text" name="ph2" class="phone"> -
 	                <input type="text" name="ph3" class="phone">				
 				</div>
-
-				
 				
 				<div type="button" onclick="check()">회원가입</div>
 		 </form>

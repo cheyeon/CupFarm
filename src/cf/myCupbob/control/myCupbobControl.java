@@ -25,6 +25,8 @@ public class myCupbobControl extends HttpServlet {
 			switch(m) {
 			 case "cb_list" : myCupBobList(request, response); break;
 			 case "eat" : eatCupbob(request, response); break;
+			 case "insert_cb" : insert_cb(request, response); break;
+			 case "rate_cb" : rate_cb(request, response); break;
 			 default : myCupBob(request, response);
 			}
 		}else {
@@ -32,23 +34,35 @@ public class myCupbobControl extends HttpServlet {
 		}
 	}
 	
+	//ÄÅ¹äÃ³¹¬
 	protected void eatCupbob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		String idxS = request.getParameter("idx");
 		if(idxS!=null) {
 			int idx = Integer.parseInt(idxS);
 			CupbobService service = CupbobService.getInstance();
 			service.eatCupbobS(idx);
-		}else {
-			
-		}
+		}else {	}
 	}
-
 	
+	//ÄÅ¹äÈ­¸é
 	protected void myCupBob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		RequestDispatcher rd = request.getRequestDispatcher("2_Member/myCupbob.jsp");
 		rd.forward(request, response);
 	}
 
+	//ÄÅ¹äµî·ÏÈ­¸é
+	protected void insert_cb(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		RequestDispatcher rd = request.getRequestDispatcher("2_Member/insert_Cupbob.jsp");
+		rd.forward(request, response);
+	}
+
+	//ÄÅ¹äÅë°èÈ­¸é
+	protected void rate_cb(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		RequestDispatcher rd = request.getRequestDispatcher("2_Member/rate_Cupbob.jsp");
+		rd.forward(request, response);
+	}
+	
+	//ÄÅ¹ä¸®½ºÆ® Ãâ·Â
 	protected void myCupBobList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		String id = request.getParameter("id");
 		CupbobService service = CupbobService.getInstance();

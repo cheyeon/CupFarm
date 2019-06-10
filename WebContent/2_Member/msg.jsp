@@ -35,6 +35,11 @@
 	alert("회원가입 성공");
 	location.href="login.do";	
 <%
+   }else if(result == 5){
+%>
+	alert("로그인이 필요합니다");
+	location.href="login.do";
+<%
    }
 %>
 </script>

@@ -105,7 +105,7 @@
 	 }
 	 
 	 .tables{
-	 	margin-top: 11%;
+	 	margin-top: 9%;
 	 }
 
 	.tables table{
@@ -134,27 +134,48 @@
 	.tables tr:hover td {
 	  background-color: #f2f2f2;
 	}
+	
+	#in_cb{
+		width: 90%;
+	}
+	
 </style>
 </head>
 <body>
 	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
+	<%
+		MemDTO dto = (MemDTO)session.getAttribute("loginSession");
+		ArrayList<McbDTO> list = (ArrayList<McbDTO>)session.getAttribute("list");
+		
+		String mycupbob = null;
+		String insert_cb = null;
+		String my_rate = null;
+		if(dto!=null){
+			mycupbob="my.do?m=cb_list&id="+dto.getM_id();
+			insert_cb = "my.do?m=insert_cb";
+			my_rate = "my.do?m=rate_cb";
+		}else{
+			mycupbob = "my.do";
+			insert_cb = "login.do?m=plzlogin";
+			my_rate = "login.do?m=plzlogin";
+		}
+	%>
 	<div id="container">
 		<div id ="left_menu">
 			<div> 내 컵밥관리 </div>
-			<div> - <a href="">지금 나의 컵밥</a> </div>
-			<div> -  <a href="">나의 컵밥 통계</a> </div>
+			<div> - <a href="<%=mycupbob%>">지금 나의 컵밥</a> </div>
+			<div> -  <a href="<%=insert_cb%>">컵밥 등록 하기</a> </div>
+			<div> -  <a href="<%=my_rate%>">나의 컵밥 통계</a> </div>
 		</div>
 		<div id ="contents">
 			<div id = "cont_top">
 				<div>	지금 나의 컵밥	</div>
 			</div>
+
 		<%
-			String name;
-			MemDTO dto = (MemDTO)session.getAttribute("loginSession");
-			ArrayList<McbDTO> list = (ArrayList<McbDTO>)session.getAttribute("list");
-			
+			String name;			
 			if(dto != null){
-				name = dto.getM_name()+"님이 가지고 계신 컵밥은 "+list.size()+"개 입니다.";
+				name = dto.getM_name()+"님이 가지고 계신 컵밥은 "+"웅앵웅"+"개 입니다.";
 			}else{
 				name = "로그인을 해주세요";
 			}
@@ -164,7 +185,7 @@
 			</div>
 		<%
 		if(dto != null){
-		%>
+		%>			
 			<div class="tables">
 				<table>
 					<col width="13%">

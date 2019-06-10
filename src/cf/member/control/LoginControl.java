@@ -28,6 +28,7 @@ public class LoginControl extends HttpServlet {
 			switch(m) {
 				case "login" : login(request, response); break;
 				case "logout" : logout(request, response); break;
+				case "plzlogin" : plzlogin(request, response); break;
 				default : login_form(request, response); break;
 			}
 		}else {
@@ -38,6 +39,15 @@ public class LoginControl extends HttpServlet {
 	private void login_form(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("./2_Member/login.jsp");
+		rd.forward(request, response);
+	}
+
+	//로그인이 필요한 서비스입니다.
+	private void plzlogin(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		int result = 5;
+		request.setAttribute("result", result);
+		RequestDispatcher rd = request.getRequestDispatcher("./2_Member/msg.jsp");
 		rd.forward(request, response);
 	}
 
