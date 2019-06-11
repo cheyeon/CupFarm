@@ -1,3 +1,4 @@
+<%@page import="cf.board.model.CFReplyDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" import="java.util.*,cf.board.model.CFBoardDTO"%>
 <!DOCTYPE html>
 <html>
@@ -135,6 +136,8 @@
 
 <% 
 	CFBoardDTO tcon = (CFBoardDTO) request.getAttribute("tcon");
+	String uid = (String)request.getAttribute("uid");
+	
 %>
 	
 <center>
@@ -161,10 +164,65 @@
 </tr>
 </table>
 <hr width='600' size='2' noshade>
-<b>
+<table border='1' width='600' align='center' cellpadding='3'>
+<%
+	ArrayList<CFReplyDTO> relist = (ArrayList<CFReplyDTO>)request.getAttribute("relist");
+	for(CFReplyDTO dto : relist){
+%>
 
-<a href='./board.do?m=tradelist&cp=10&ps=1'>목록</a>
-</b>
+<tr>
+
+<tr>
+<td align='center'>글쓴이</td>
+<td><%=dto.getM_id() %>
+
+
+<%
+System.out.println("uid : "+uid+"tcon.getmid : "+tcon.getM_id());
+System.out.println(tcon.getB_pwd()+"현재패스워드 시발,,,,");
+if(tcon.getM_id().equals(uid)){
+	if(tcon.getB_pwd()!=0){
+
+%>
+<form name="resel" action="./board.do?m=resel&taget=<%=dto.getR_idx() %>&b_idx=<%=tcon.getB_idx() %>" method="post">	
+<input type="button" id="button1" onclick="submit()" value="이사람선택" />
+</form>
+<%	
+	}else if(tcon.getB_pwd()==0){
+%>
+<input type="button" id="button1" onclick="button1_click();" value="이미선택했슴다" />		
+<% 		
+	}
+}else if(dto.getM_id().equals(uid)){
+	if(dto.getR_check()==1){
+%>
+		<form name="tradestart" action="./board.do?m=trades&taget=<%=dto.getM_id() %>&b_idx=<%=tcon.getB_idx() %>&c_idx=<%=tcon.getC_idx() %>&b_id=<%=tcon.getM_id() %>" method="post">	
+		<input type="button" id="button1" onclick="button1_click();" value="교환하시겠습니까?" />
+		</form>		
+<% 		
+	
+	}
+
+}
+%>
+
+
+
+
+</td>
+</tr>
+<tr>
+<td align='center'>댓글내용</td>
+<td><%=dto.getR_content()%></td>
+</tr><tr>
+<td align='center'>작성날짜</td>
+<td><%=dto.getR_date() 	 %></td>
+</tr>
+
+<%
+}
+%>
+</table>
 <hr width='600' size='2' noshade>
 
 	
@@ -188,7 +246,19 @@
 						value="다시쓰기" ></td>
 				</tr>
 				<input type="hidden" value="<%= tcon.getB_idx()%>" name="b_idx">
+			
+				</table>
 				
+<b>
+
+<a href='./board.do?m=tradelist&cp=10&ps=1'>목록</a>
+</b>
+
+<br><br><br>
+
+
+
+
 </center>	
 	
 	

@@ -169,9 +169,7 @@
 	ArrayList<CFBoardDTO> list = (ArrayList<CFBoardDTO>)request.getAttribute("list");
 	for(CFBoardDTO dto : list){
 %>
-					<tr>
-						<td><%=dto.getB_idx()%></td>
-			
+					
 			
 <%
 	ArrayList<CupbobDTO> clist = (ArrayList<CupbobDTO>)request.getAttribute("clist");
@@ -181,7 +179,26 @@
 		
 		if(dto.getC_idx()==cdto.getC_idx()){
 			%>
+			
+			
+			<tr>
+			<td><%=dto.getB_idx()%></td>
+			
 			<td><%=cdto.getC_name()%></td>
+			
+			<td>
+				<a href="./board.do?m=con&idx=<%=dto.getB_idx()%>">
+				<%=dto.getB_title() %></td></a>
+			<td><%=dto.getM_id() %></td>
+			<td><%=dto.getB_wdate() %></td>
+				</tr>
+
+			
+			
+			
+			
+			
+			
 			<%
 			}else{
 				
@@ -192,14 +209,6 @@
 	
 			
 			
-			
-						<td>
-						<a href="./board.do?m=con&idx=<%=dto.getB_idx()%>">
-						<%=dto.getB_title() %></td></a>
-						<td><%=dto.getM_id() %></td>
-						<td><%=dto.getB_wdate() %></td>
-					</tr>
-
 <%
 	}
 %>

@@ -1,5 +1,6 @@
 package cf.board.model;
 import cf.member.model.MemDTO;
+import cf.myCupbob.model.CupbobDTO;
 import cf.myCupbob.model.McbDTO;
 
 import java.util.*;
@@ -48,6 +49,18 @@ public class CFBoardService {
 		
 	}
 	public ArrayList<CFReplyDTO> replyS(String b_idx){
-		return null;
+		return cfdao.reply(b_idx);
+		
+	}
+	public ArrayList<CupbobDTO> cuplistS(){
+		return cfdao.cuplist();
+	}
+	
+	public ArrayList<CupbobDTO> tseachcS(String tseachval){
+		return cfdao.tseachc(tseachval);
+	}
+	public void reselS(String b_idx, String r_idx) {
+		cfdao.resel(b_idx, r_idx);
+		
 	}
 }
