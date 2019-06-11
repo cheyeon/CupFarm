@@ -21,6 +21,7 @@ import cf.board.model.CFBoardDTO;
 import cf.board.model.CFBoardService;
 import cf.board.model.CFReplyDTO;
 import cf.member.model.MemDTO;
+import cf.myCupbob.model.CupbobDTO;
 import cf.myCupbob.model.McbDTO;
 
 
@@ -32,6 +33,8 @@ public class CFBoardControl extends HttpServlet {
 		
 		String m = request.getParameter("m");
 		System.out.println("m값들옴"+m);
+	
+		
 		
 	
 	
@@ -61,6 +64,10 @@ public class CFBoardControl extends HttpServlet {
 			}else if(m.equals("replyin")) {
 				replyin(request, response);
 				
+			}else if(m.equals("resel")){
+				resel(request, response);
+			}else if(m.equals("trades")){
+				trade(request, response);
 			}else {}
 			
 			
@@ -85,11 +92,16 @@ public class CFBoardControl extends HttpServlet {
 		CFBoardService service = CFBoardService.getInstance();
 		consu = service.consuS();
 		ArrayList<CFBoardDTO> tlist = service.tradelistS(Strcp,Strps);
-		
 		int cp = Integer.parseInt(Strcp);
-		
 		int pagesu = (int) Math.ceil((double)consu/cp);
-		System.out.println("총게시물수 : "+consu+"페이지당 게시물수 : "+cp+"그러면페이지수가어? : "+pagesu );
+		
+		ArrayList<CupbobDTO> clist = service.cuplistS();
+		
+		
+		
+		
+		
+		request.setAttribute("clist", clist);
 		request.setAttribute("pagesu", pagesu);
 		request.setAttribute("list", tlist);
 		RequestDispatcher rd = request.getRequestDispatcher("4_Trade/tradeList.jsp");
@@ -100,11 +112,22 @@ public class CFBoardControl extends HttpServlet {
 	private void seachbox(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		String tseachval = request.getParameter("tseachval");
+		
+		
+		
 		CFBoardService service = CFBoardService.getInstance();
-		ArrayList<CFBoardDTO> tslist = service.tseachS(tseachval);
+		ArrayList<CupbobDTO> clist = service.tseachcS(tseachval);
+		
+	
+		
+		
+		
+		
+		ArrayList<CFBoardDTO> tslist = service.tseachS(null);
 		request.setAttribute("pagesu", 1);
 		request.setAttribute("list", tslist);
-		RequestDispatcher rd = request.getRequestDispatcher("4_Trade/tradeList.jsp");
+		request.setAttribute("clist", clist);
+		RequestDispatcher rd = request.getRequestDispatcher("4_Trade/seachList.jsp");
 		rd.forward(request, response);
 		
 	}
@@ -137,9 +160,12 @@ public class CFBoardControl extends HttpServlet {
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
 		String Strpwd = request.getParameter("pwd");
+		String Strc_idx = request.getParameter("select_cp");
+		int c_idx = Integer.parseInt(Strc_idx);
+		
 		int pwd = Integer.parseInt(Strpwd);
 			
-		CFBoardDTO cfdto = new CFBoardDTO(-1, "T", subject, id, content, 1, 1, pwd, null);
+		CFBoardDTO cfdto = new CFBoardDTO(-1, "T", subject, id, content, c_idx, 1, pwd, null);
 		service.tinputS(cfdto);
 		RequestDispatcher rd = request.getRequestDispatcher("./board.do?m=tradelist&cp=10&ps=1");
 		rd.forward(request, response);
@@ -147,15 +173,35 @@ public class CFBoardControl extends HttpServlet {
 	}
 	private void tcon(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
+		String uid = "uid";
+		
+		if(request.getSession()!=null) {
+		HttpSession session=request.getSession();
+			if(session.getAttribute("loginSession")!=null) {
+			MemDTO mdto = (MemDTO)session.getAttribute("loginSession");
+				if(mdto.getM_id()!=null) {		
+				uid= mdto.getM_id();	
+				}else {
+					
+				}
+			}else {
+				
+			}
+		}
+	
+		
 		String idx = request.getParameter("idx");
 		CFBoardService service = CFBoardService.getInstance();
 		CFBoardDTO cdto = service.tconS(idx);
 		ArrayList<CFReplyDTO> relist = service.replyS(idx);
-		
+		request.setAttribute("relist", relist);
+		request.setAttribute("uid", uid);
 		request.setAttribute("tcon", cdto);
 		RequestDispatcher rd = request.getRequestDispatcher("4_Trade/tContentform.jsp");
 		rd.forward(request, response);
 	}
+	
+	
 	private void replyin(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		String r_content = request.getParameter("content");
@@ -172,6 +218,27 @@ public class CFBoardControl extends HttpServlet {
 		
 	}
 	
+	public void resel(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException{
+		String b_idx = request.getParameter("b_idx");
+		String r_idx = request.getParameter("taget");
+		CFBoardService service = CFBoardService.getInstance();
+		service.reselS(b_idx,r_idx);
+		RequestDispatcher rd = request.getRequestDispatcher("./board.do?m=tradelist&cp=10&ps=1");
+		rd.forward(request, response);
+		
+	}
+	public void trade(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException{
+		String reid=request.getParameter("target");
+		String boidx = request.getParameter("b_idx");
+		String c_idx=request.getParameter("c_idx");
+		String boid=request.getParameter("b_id");
+		CFBoardService service = CFBoardService.getInstance();
+		
+		
+		
+	}
 	
 	
 }
