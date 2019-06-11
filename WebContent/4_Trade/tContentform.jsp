@@ -261,10 +261,5 @@ if(tcon.getM_id().equals(uid)){
 
 </center>	
 	
-	
-	
-	
-	
-	<jsp:include page="../0_HFooter/footer.jsp"></jsp:include>
-</body>
+	</body>
 </html>

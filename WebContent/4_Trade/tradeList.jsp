@@ -258,6 +258,5 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="../0_HFooter/footer.jsp"></jsp:include>
 </body>
 </html>
