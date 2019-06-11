@@ -4,148 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/basic.css">
-<style type="text/css">
-	@-webkit-keyframes bounceIn {
-	  from,
-	  20%,
-	  40%,
-	  60%,
-	  80%,
-	  to {
-	    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-	    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-	  }
-	
-	  0% {
-	    opacity: 0;
-	    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-	    transform: scale3d(0.3, 0.3, 0.3);
-	  }
-	
-	  20% {
-	    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-	    transform: scale3d(1.1, 1.1, 1.1);
-	  }
-	
-	  40% {
-	    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-	    transform: scale3d(0.9, 0.9, 0.9);
-	  }
-	
-	  60% {
-	    opacity: 1;
-	    -webkit-transform: scale3d(1.03, 1.03, 1.03);
-	    transform: scale3d(1.03, 1.03, 1.03);
-	  }
-	
-	  80% {
-	    -webkit-transform: scale3d(0.97, 0.97, 0.97);
-	    transform: scale3d(0.97, 0.97, 0.97);
-	  }
-	
-	  to {
-	    opacity: 1;
-	    -webkit-transform: scale3d(1, 1, 1);
-	    transform: scale3d(1, 1, 1);
-	  }
-	}
-	
-	@keyframes bounceIn {
-	  from,
-	  20%,
-	  40%,
-	  60%,
-	  80%,
-	  to {
-	    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-	    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-	  }
-	
-	  0% {
-	    opacity: 0;
-	    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-	    transform: scale3d(0.3, 0.3, 0.3);
-	  }
-	
-	  20% {
-	    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-	    transform: scale3d(1.1, 1.1, 1.1);
-	  }
-	
-	  40% {
-	    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-	    transform: scale3d(0.9, 0.9, 0.9);
-	  }
-	
-	  60% {
-	    opacity: 1;
-	    -webkit-transform: scale3d(1.03, 1.03, 1.03);
-	    transform: scale3d(1.03, 1.03, 1.03);
-	  }
-	
-	  80% {
-	    -webkit-transform: scale3d(0.97, 0.97, 0.97);
-	    transform: scale3d(0.97, 0.97, 0.97);
-	  }
-	
-	  to {
-	    opacity: 1;
-	    -webkit-transform: scale3d(1, 1, 1);
-	    transform: scale3d(1, 1, 1);
-	  }
-	}
-	
-	.bounceIn {
-	  	-webkit-animation-duration: 0.75s;
-	  	animation-duration: 0.75s;
-	  	-webkit-animation-name: bounceIn;
-	  	animation-name: bounceIn;
-	 	text-align: center;
-	 	margin-top: 50px;
-	 }
-	 
-	 .tables{
-	 	margin-top: 9%;
-	 }
+<link rel="stylesheet" type="text/css" href="./css/mycupbob.css">
 
-	.tables table{
-		border-collapse: collapse;
-		width: 90%;
-		border-right:none;
-		border-left:none;
-		border-top:none;
-		border-bottom:none;
-		text-align: center;
-		margin: auto;
-	}
-	
-	.tables th{
-		padding: 10px;
-		color: #2d2d2d;
-		border-bottom: 3px solid #2d2d2d;
-	}
-	
-	.tables td {
-	  color: #669;
-	  padding: 10px;
-	  border-bottom: 1px solid #ddd;
-	}
-	
-	.tables tr:hover td {
-	  background-color: #f2f2f2;
-	}
-	
-	#in_cb{
-		width: 90%;
-	}
-	
-</style>
 </head>
 <body>
 	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
 	<%
 		MemDTO dto = (MemDTO)session.getAttribute("loginSession");
-		ArrayList<McbDTO> list = (ArrayList<McbDTO>)session.getAttribute("list");
+		ArrayList<McbDTO> list = (ArrayList<McbDTO>)request.getAttribute("list");
+		int count = (Integer)request.getAttribute("count");
 		
 		String mycupbob = null;
 		String insert_cb = null;
@@ -153,7 +20,7 @@
 		if(dto!=null){
 			mycupbob="my.do?m=cb_list&id="+dto.getM_id();
 			insert_cb = "my.do?m=insert_cb";
-			my_rate = "my.do?m=rate_cb";
+			my_rate = "my.do?m=rate_cb&id="+dto.getM_id();
 		}else{
 			mycupbob = "my.do";
 			insert_cb = "login.do?m=plzlogin";
@@ -173,9 +40,11 @@
 			</div>
 
 		<%
-			String name;			
+			String name;	
+			String name2;
 			if(dto != null){
-				name = dto.getM_name()+"님이 가지고 계신 컵밥은 "+"웅앵웅"+"개 입니다.";
+				name = dto.getM_name()+"님이 가지고 계신 컵밥은 "+ count +"개 입니다.";
+				name2 = "가장 많이 가지고 계신 컵밥은 "+""+"입니다";
 			}else{
 				name = "로그인을 해주세요";
 			}

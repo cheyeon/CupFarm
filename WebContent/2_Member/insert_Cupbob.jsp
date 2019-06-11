@@ -26,6 +26,12 @@
 		    transform: translateY(-50%);
 		    margin-right: 6px;
 		}
+		
+		.checks + label:active{
+		    width: 11.5px;
+		    height: 11.5px;
+		    background-color: 	#c71d22
+		}
 
 		.checks:checked + label {
 			background-color: #c71d22;
@@ -110,6 +116,7 @@
 		
 		function checkThecheckbox(){
 			if($("input:checkbox[name='cupbobs']").is(":checked")==true){
+				alert('컵밥 등록 성공!');
 				f.submit();
 			}else{
 				alert('컵밥을 체크해주세요');
@@ -126,14 +133,18 @@
 		String mycupbob = null;
 		String insert_cb = null;
 		String my_rate = null;
+		String my_id = null;
+		
 		if(dto!=null){
 			mycupbob="my.do?m=cb_list&id="+dto.getM_id();
 			insert_cb = "my.do?m=insert_cb";
-			my_rate = "my.do?m=rate_cb";
+			my_rate = "my.do?m=rate_cb&id="+dto.getM_id();
+			my_id = dto.getM_id();
 		}else{
 			mycupbob = "my.do";
 			insert_cb = "login.do?m=plzlogin";
 			my_rate = "login.do?m=plzlogin";
+			my_id = null;
 		}
 	%>
 	<div id="container">
@@ -155,6 +166,7 @@
 
 				<div id="checkboxs">
 				<input type="checkbox" name="cupbobs" value="1" class="checks" id="ck"/>
+				<input type="hidden" name="id" value="<%=my_id%>"/>
 				<div class="cupbobs"> <input type="checkbox" name="cupbobs" value="1" class="checks" id="ck1"/><label for="ck1"></label> 볶은김치덮밥 - <input type="text" name="1num" maxlength="3" size="3" placeholder="1개"> </div>
 				<div class="cupbobs"> <input type="checkbox" name="cupbobs" value="2" class="checks" id="ck2"/><label for="ck2"></label> 오징어덮밥 - <input type="text" name="2num" maxlength="3" size="3" placeholder="1개"> </div>
 				<div class="cupbobs"> <input type="checkbox" name="cupbobs" value="3" class="checks" id="ck3"/><label for="ck3"></label> 불닭덮밥 - <input type="text" name="3num" maxlength="3" size="3" placeholder="1개"> </div>
@@ -179,7 +191,5 @@
 			</form>
 			</div>
 		</div>
-
-	<jsp:include page="../0_HFooter/footer.jsp"></jsp:include>
 </body>
 </html>
