@@ -10,13 +10,15 @@
 	<jsp:include page="../0_HFooter/header.jsp"></jsp:include>
 	<%
 		MemDTO dto = (MemDTO)session.getAttribute("loginSession");
-		ArrayList<McbDTO> list = (ArrayList<McbDTO>)request.getAttribute("list");
-		int count = (Integer)request.getAttribute("countD");
+		ArrayList<McbDTO> list = null;
+		int count = 0;
 		
 		String mycupbob = null;
 		String insert_cb = null;
 		String my_rate = null;
 		if(dto!=null){
+			list = (ArrayList<McbDTO>)request.getAttribute("list");
+			count = (Integer)request.getAttribute("countD");
 			mycupbob="my.do?m=cb_list&id="+dto.getM_id();
 			insert_cb = "my.do?m=insert_cb";
 			my_rate = "my.do?m=rate_cb&id="+dto.getM_id();
