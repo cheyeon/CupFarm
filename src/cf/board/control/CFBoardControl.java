@@ -235,7 +235,7 @@ public class CFBoardControl extends HttpServlet {
 		String c_idx=request.getParameter("c_idx");
 		String boid=request.getParameter("b_id");
 		CFBoardService service = CFBoardService.getInstance();
-		
+		String cname = service.cnameS(boidx);
 		
 		
 	}
