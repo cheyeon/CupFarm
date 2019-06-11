@@ -63,4 +63,8 @@ public class CFBoardService {
 		cfdao.resel(b_idx, r_idx);
 		
 	}
+	public String cnameS(String b_idx) {
+		cfdao.cname(b_idx);
+		return null;
+	}
 }

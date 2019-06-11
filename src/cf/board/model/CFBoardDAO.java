@@ -433,7 +433,31 @@ class CFBoardDAO {
 		
 	}
 	
-	
+	String cname(String b_idx) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("select b.b_idx, c.c_name from cupbob c, board b where b.c_idx=c.c_idx and b.b_idx=?");
+			pstmt.setString(1, b_idx);
+			rs =  pstmt.executeQuery();
+			rs.next();
+		}catch(SQLException se) {
+			System.out.println("cfdao. replyin err : "+ se);
+		}finally {
+			   try {
+				   if(pstmt != null) pstmt.close();
+				   if(con != null) con.close();
+			   }catch(SQLException se) {
+			   }			   
+		   }		
+		
+		
+		return null;
+		
+	}
 	
 	
 }
